@@ -1,0 +1,7 @@
+@startuml
+enum ErrorState {
+    Success,
+    XLessZero,
+    YLessZero,
+}
+@enduml

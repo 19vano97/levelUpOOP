@@ -1,0 +1,20 @@
+@startuml
+class Group {
+    + Group(groupName:string, startDate:DateTime, currentYear:int, groupSupervisor:Supervisor, groupSubjects:Subject[], studentsList:Student[], avrMarkOfGroup:double, groupSpecialization:Specialization)
+    + GroupName : string <<get>> <<set>>
+    + CurrentYear : int <<get>> <<set>>
+    + AvrMarkOfGroup : double <<get>> <<set>>
+    + DeleteStudent(studentToDelete:Student) : void
+    + AddNewStudentsToGroupFromScratch(idRecords:string[]) : void
+    + ChangeSubjectsForStudents() : void
+    + CreateCopyOfGroup() : Group
+    + Group(groupToCopy:Group)
+    + GetListOfSubjects(amountOfSubjects:int) : void
+    + FindStudentsBySearchInGroup(name:string) : Student[]
+}
+Group --> "UseId" Guid
+Group --> "EnrollmentDateOfTheGroup" DateTime
+Group --> "GroupSupervisor" Supervisor
+Group --> "GroupSpecialization" Specialization
+Group --> "StartDate" DateTime
+@enduml

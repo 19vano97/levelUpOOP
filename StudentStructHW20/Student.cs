@@ -1,85 +1,83 @@
-﻿namespace _20240522_HW20;
+﻿using StudentStructHW20;
+
+namespace _20240522_HW20;
 
 public struct Student
 {
     private string _firstName;
     private string _lastName;
-    private string _idRecord;
-    private int _avgMark;
+    private Guid _recordId = Guid.NewGuid();
+    private int[,] _studentMarks;
+    private double _avgMark;
     private DateTime _dateOfBirth;
 
-    public static Student CreateOneStudent(Group studentGroup, string[] idRecords)
-    {
-        Student studentCreate = new Student()
-        {
-            _firstName = BL.GetRandomFirstname(),
-            _lastName = BL.GetRandomLastname(),
-            _idRecord = BL.GenerateRandomRecordId(idRecords),
-            _avgMark = BL.AvgMarkOfOneStudentRandom(studentGroup.GetSubjectsForTheGroup()),
-            _dateOfBirth = BL.GetDateRandom("date of birth")
-        };
-
-        return studentCreate;
-    }
-
     public Student (string firstName, string lastName, 
-                                            string idRecord, int avgMark, 
-                                            DateTime dateOfBirth)
+                    int[,] avgMark, DateTime dateOfBirth)
     {
        _firstName = firstName;
        _lastName = lastName;
-       _idRecord = idRecord;
-       _avgMark = avgMark;
+       _studentMarks = avgMark;
        _dateOfBirth = dateOfBirth;
+       _avgMark = GetAvgMarkOfTheStudent();
     }
 
-    public string GetFirstNameOfAStudent()
+    public string StudentFirstName
     {
-        return _firstName;
+        get { return _firstName; }
+        set { _firstName = value; }
     }
 
-    public string GetLastNameOfAStudent()
+    public string StudentLastName
     {
-        return _lastName;
+        get { return _lastName; }
+        set { _lastName = value; }
     }
 
-    public string GetIdRecordOfAStudent()
+    public Guid StudentIdRecord
     {
-        return _idRecord;
+        get { return _recordId; }
+        set { _recordId = value; }
     }
 
-    public int GetAvarageMarkOfAStudent()
+    public int[,] StudentMarks
     {
-        return _avgMark;
+        get { return _studentMarks; }
+        set { _studentMarks = value; }
     }
 
-    public DateTime GetDateOfBirthOfAStudent()
+    public DateTime StudentDateOfBirth
     {
-        return _dateOfBirth;
+        get { return _dateOfBirth; }
+        set { _dateOfBirth = value; }
     }
 
-    public void SetFirstNameOfAStudent(string firstName)
+    public double StudentAvgMark
     {
-        _firstName = firstName;
+        get { return _avgMark; }
+        set { _avgMark = value; }
     }
 
-    public void SetLasttNameOfAStudent(string lastName)
+    public double GetAvgMarkOfTheStudent()
     {
-        _lastName = lastName;
+        double sum = 0;
+
+        for (int i = 0; i < _studentMarks.GetLength(0); i++)
+        {
+            sum += _studentMarks[i, 1];
+        }
+
+        sum /= _studentMarks.GetLength(0);
+
+        return sum;
     }
 
-    public void SetIdRecordOfAStudent(string idRecord)
+    public bool IsStudentExists(string name)
     {
-        _idRecord = idRecord;
-    }
+        if (_firstName == name || _lastName == name || _recordId.ToString() == name)
+        {
+            return true;
+        }
 
-    public void SetAvarageMarkOfAStudent(int avgMark)
-    {
-        _avgMark = avgMark;
-    }
-
-    public void SetDateOfBirthOfAStudent(DateTime dateOfBirth)
-    {
-        _dateOfBirth = dateOfBirth;
+        return false;
     }
 }

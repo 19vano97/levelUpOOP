@@ -1,0 +1,9 @@
+@startuml
+class Faculty {
+    + Faculty(groups:Group[])
+    + AddGroup(groupToAdd:Group) : void
+    + UpdateGroupInTheList(groupToUpdate:Group) : void
+    + DeleteGroupFromList(groupToDelete:Group) : bool
+    + MoveGroupToNextYear(studentGroup:Group) : void
+}
+@enduml

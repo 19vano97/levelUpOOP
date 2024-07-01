@@ -1,0 +1,8 @@
+@startuml
+struct GameProperty {
+    + gameTime : ulong
+    + isGameOver : bool
+    + score : int
+}
+GameProperty --> "level" GameLevelStructure
+@enduml

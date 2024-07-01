@@ -1,0 +1,7 @@
+@startuml
+class UI {
+    + {static} Show(p:NewPoint) : void
+    + {static} InputPoint() : NewPoint
+    + {static} Show(x:int, y:int) : void
+}
+@enduml

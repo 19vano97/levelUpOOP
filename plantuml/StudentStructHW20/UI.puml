@@ -1,0 +1,19 @@
+@startuml
+class UI {
+    + {static} PrintMainMenu() : void
+    + {static} PrintNextMainMenu(groupList:Faculty, idRecords:string[], supervisorList:Supervisor[]) : void
+    + {static} EditGroupUI(groupList:Faculty, groupToEdit:Group, idRecords:string[], supervisorList:Supervisor[]) : void
+    + {static} UseGroupFromList(groupList:Faculty) : Group
+    + {static} EnterIntValue(message:string) : int
+    + {static} EnterString(message:string) : string
+    + {static} GetSpecialization() : Specialization
+    + {static} InitSupervisor() : Supervisor
+    + {static} GetSupervisor(supervisorsList:Supervisor[]) : Supervisor
+    + {static} PrintSupervisor(supervisorName:Supervisor) : void
+    + {static} PrintGroup(groupPrint:Group) : void
+    + {static} ChooseStudent(studentGroup:Group) : Student
+    + {static} PrintStudent(key:Student) : void
+    + {static} PrintAllGroups(groupList:Faculty) : void
+    + {static} PrintStudentsBySearch(facultyGroups:Faculty, name:string) : void
+}
+@enduml

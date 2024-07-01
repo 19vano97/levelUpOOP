@@ -1,4 +1,7 @@
-﻿namespace _20240522_HW20;
+﻿using System.Runtime.InteropServices.Marshalling;
+using StudentStructHW20;
+
+namespace _20240522_HW20;
 
 public class UI
 {
@@ -23,17 +26,20 @@ public class UI
             {
                 case ConsoleKey.I:
                     System.Console.WriteLine();
-                    Supervisor[] supervisorList = BL.GetRandomSupervisors();
-                    Group[] groupCreateList = BL.InitArrayOfEmptyGroups(supervisorList);
+
                     string[] idRecords = new string[0];
-                    PrintNextMainMenu(groupCreateList, idRecords, supervisorList);
+                    Supervisor[] supervisorList = BL.GetRandomSupervisors();
+                    Faculty groupList = BL.InitArrayOfEmptyGroups(supervisorList, idRecords);
+
+                    PrintNextMainMenu(groupList, idRecords, supervisorList);
                     break;                
                 default:
                 break;
             }
         } while (key != ConsoleKey.Escape);
     }
-    public static void PrintNextMainMenu(Group[] groupList, string[] idRecords, Supervisor[] supervisorList)
+    public static void PrintNextMainMenu(Faculty groupList, string[] idRecords, 
+                                            Supervisor[] supervisorList)
     {
         Console.Clear();
         System.Console.WriteLine("O. Output a group");
@@ -41,6 +47,7 @@ public class UI
         System.Console.WriteLine("A. Add group");
         System.Console.WriteLine("E. Edit a group");
         System.Console.WriteLine("D. Delete a group");
+        System.Console.WriteLine("I. Find a student");
         System.Console.WriteLine("C. Clear console");
         System.Console.WriteLine("Esc. Exit");
         System.Console.WriteLine();
@@ -50,7 +57,7 @@ public class UI
 
         do
         {
-            Console.SetCursorPosition(13, 8);
+            Console.SetCursorPosition(13, 9);
 
             key = Console.ReadKey().Key;
 
@@ -63,13 +70,12 @@ public class UI
                     break;
                 case ConsoleKey.V:
                     System.Console.WriteLine();
-                    BL.PrintAllGroups(groupList);
+                    PrintAllGroups(groupList);
                     break;
                 case ConsoleKey.A:
                     System.Console.WriteLine();
-                    Group groupToAdd = BL.CreateGroup(supervisorList);
-                    groupList = BL.AddGroup(ref groupList, groupToAdd);
-                    System.Console.WriteLine(groupList.Length);
+                    Group groupToAdd = BL.CreateGroup(supervisorList, idRecords);
+                    groupList.AddGroup(groupToAdd);
                     break;
                 case ConsoleKey.E:
                     System.Console.WriteLine();
@@ -79,17 +85,18 @@ public class UI
                 case ConsoleKey.D:
                     System.Console.WriteLine();
                     Group groupToDelete = UseGroupFromList(groupList);
-                    if (BL.DeleteGroupFromListBL(groupList, groupToDelete))
+                    if (groupList.DeleteGroupFromList(groupToDelete))
                     {
-                        System.Console.WriteLine("The {0} group has been succesfully removed", groupToDelete.GetGroupName());
+                        System.Console.WriteLine("The {0} group has been succesfully removed", 
+                                                    groupToDelete.GroupName);
                     }
                     else
                     {
                         System.Console.WriteLine("Something went wrong");
                     }
                     break;
-                case ConsoleKey.S:
-
+                case ConsoleKey.I:
+                    PrintStudentsBySearch(groupList ,EnterString("firstName / lastName / idRecord"));
                     break;
                 case ConsoleKey.C:
                     Console.Clear();
@@ -101,7 +108,8 @@ public class UI
         } while (key != ConsoleKey.Escape);
     }
 
-    public static void EditGroupUI(Group[] groupList, Group groupToEdit, string[] idRecords, Supervisor[] supervisorList)
+    public static void EditGroupUI(Faculty groupList, Group groupToEdit, string[] idRecords, 
+                                    Supervisor[] supervisorList)
     {
         Console.Clear();
         System.Console.WriteLine("A. Add students to a group");
@@ -124,33 +132,39 @@ public class UI
             {
                 case ConsoleKey.A:
                     System.Console.WriteLine();
-                    groupToEdit.SetStudentsOfTheGroup(BL.CreateStudentsArray(groupToEdit, idRecords));
-                    groupToEdit.SetAvgMarkOfTheGroup(BL.AvgMarkOfGroup(groupToEdit));
-                    BL.UpdateGroups(groupList, groupToEdit, groupToEdit);
+
+                    groupToEdit.AddNewStudentsToGroupFromScratch(idRecords);
+                    groupList.UpdateGroupInTheList(groupToEdit);
+
                     System.Console.WriteLine("Students have been succesfully added and avarage mark og the groups has been succesfully updated");
                     Thread.Sleep(DELAY);
                     Console.Clear();
+
                     EditGroupUI(groupList, groupToEdit, idRecords, supervisorList);
-                    break;
-                case ConsoleKey.R:
-                    System.Console.WriteLine();
-                    System.Console.WriteLine("TBD");
                     break;
                 case ConsoleKey.T:
                     System.Console.WriteLine();
-                    groupToEdit = BL.MoveGroupToNextYear(ref groupToEdit);
-                    BL.UpdateGroups(groupList, groupToEdit, groupToEdit);
-                    System.Console.WriteLine("The group has been succefully moved to {0} year", groupToEdit.GetCurrentYear());
+
+                    groupList.MoveGroupToNextYear(groupToEdit);
+                    groupList.UpdateGroupInTheList(groupToEdit);
+
+                    System.Console.WriteLine("The group has been succefully moved to {0} year", 
+                                                groupToEdit.CurrentYear);
                     Thread.Sleep(DELAY);
                     Console.Clear();
+
                     EditGroupUI(groupList, groupToEdit, idRecords, supervisorList);
                     break;
                 case ConsoleKey.D:
+
                     Student studentToDelete = ChooseStudent(groupToEdit);
-                    // BL.DeleteStudent(groupToEdit, studentToDelete);
-                    BL.UpdateGroups(groupList, groupToEdit, groupToEdit);
+                    groupToEdit.DeleteStudent(studentToDelete);
+                    groupList.UpdateGroupInTheList(groupToEdit);
+
                     System.Console.WriteLine("The student has successfully deleted");
+
                     break;
+
                 case ConsoleKey.Backspace:
                     PrintNextMainMenu(groupList, idRecords, supervisorList);
                     break;
@@ -161,16 +175,16 @@ public class UI
     }
 
 
-    public static Group UseGroupFromList(Group[] groupList = null)
+    public static Group UseGroupFromList(Faculty groupList)
     {
-        for (int i = 0; i < groupList.Length; i++)
+        for (int i = 0; i < groupList.UsefacultyGroups.Length; i++)
         {
-            System.Console.WriteLine("{0}. {1}", i, groupList[i].GetGroupName());
+            System.Console.WriteLine("{0}. {1}", i, groupList.UsefacultyGroups[i].GroupName);
         }
 
         int value = EnterIntValue("number of a group");
 
-        return groupList[value];
+        return groupList.UsefacultyGroups[value];
     }
 
     public static int EnterIntValue(string message)
@@ -237,6 +251,11 @@ public class UI
 
         int value = EnterIntValue("number of a supervisor");
 
+        if (value > supervisorsList.Length)
+        {
+            return GetSupervisor(supervisorsList);
+        }
+
         return supervisorsList[value];
     }
 
@@ -249,54 +268,94 @@ public class UI
     public static void PrintGroup(Group groupPrint)
     {
         System.Console.WriteLine();
-        System.Console.WriteLine("Group name: {0}", groupPrint.GetGroupName());
-        System.Console.WriteLine("Start date of enrollment: {0}", groupPrint.GetEnrollmentDateOfTheGroup().ToString("yyyy-MM-dd"));
-        System.Console.WriteLine("Current year: {0}", groupPrint.GetCurrentYear());
+        System.Console.WriteLine("Group ID: {0}", groupPrint.UseId);
+        System.Console.WriteLine("Group name: {0}", groupPrint.GroupName);
+        System.Console.WriteLine("Start date of enrollment: {0}", groupPrint.EnrollmentDateOfTheGroup.ToString("yyyy-MM-dd"));
+        System.Console.WriteLine("Current year: {0}", groupPrint.CurrentYear);
         System.Console.Write("Supervisor: "); 
-        PrintSupervisor(groupPrint.GetGroupsSupervisor());
+        PrintSupervisor(groupPrint.GroupSupervisor);
 
         System.Console.WriteLine("Students");
 
-       if (groupPrint.GetStudentsOfTheGroup() != null)
+       if (groupPrint.GroupStudents != null)
        {
-            for (int i = 0; i < groupPrint.GetStudentsOfTheGroup().Length; i++)
+            for (int i = 0; i < groupPrint.GroupStudents.Length; i++)
             {
-                System.Console.WriteLine("{0}. {1} {2}, IdRecord: {3}, Avarage mark: {4}", i, 
-                                            groupPrint.GetStudentsOfTheGroup()[i].GetLastNameOfAStudent(),
-                                            groupPrint.GetStudentsOfTheGroup()[i].GetFirstNameOfAStudent(), 
-                                            groupPrint.GetStudentsOfTheGroup()[i].GetIdRecordOfAStudent(),
-                                            groupPrint.GetStudentsOfTheGroup()[i].GetAvarageMarkOfAStudent());
+                System.Console.WriteLine("{0}. {1} {2}, IdRecord: {3}", i, 
+                                            groupPrint.GroupStudents[i].StudentLastName,
+                                            groupPrint.GroupStudents[i].StudentFirstName, 
+                                            groupPrint.GroupStudents[i].StudentIdRecord);
+                
+                for (int y = 0; y < groupPrint.GroupStudents[i].StudentMarks.GetLength(0); y++)
+                {
+                    Console.CursorLeft = 10;
+                    System.Console.WriteLine("{0, 10}: {1}", (SubjectList)groupPrint.GroupStudents[i].StudentMarks[y, 0],
+                                                                        groupPrint.GroupStudents[i].StudentMarks[y, 1]);
+                }
+
+                Console.CursorLeft = 10;
+                System.Console.WriteLine("Avarage mark: {0}", groupPrint.GroupStudents[i].StudentAvgMark);
             }
+
+            
+
        }
        else
        {
             System.Console.WriteLine("There are no students in ths group");
        }
 
-        System.Console.WriteLine("Avarage mark of the group: {0}", groupPrint.GetAvgMarkOfTheGroup());
+        System.Console.WriteLine("Avarage mark of the group: {0}", groupPrint.AvrMarkOfGroup);
 
     }
 
     public static Student ChooseStudent(Group studentGroup)
     {
-        for (int i = 0; i < studentGroup.GetStudentsOfTheGroup().Length; i++)
+        for (int i = 0; i < studentGroup.GroupStudents.Length; i++)
         {
             System.Console.WriteLine("{0}. {1} {2}, IdRecord: {3}", i, 
-                                        studentGroup.GetStudentsOfTheGroup()[i].GetLastNameOfAStudent(),
-                                        studentGroup.GetStudentsOfTheGroup()[i].GetFirstNameOfAStudent(), 
-                                        studentGroup.GetStudentsOfTheGroup()[i].GetIdRecordOfAStudent());
+                                        studentGroup.GroupStudents[i].StudentLastName,
+                                        studentGroup.GroupStudents[i].StudentFirstName, 
+                                        studentGroup.GroupStudents[i].StudentIdRecord);
         }
 
         int studentIndex = EnterIntValue("number of the student");
 
-        return studentGroup.GetStudentsOfTheGroup()[studentIndex];
+        return studentGroup.GroupStudents[studentIndex];
     }
 
     public static void PrintStudent(Student key)
     {
-        System.Console.WriteLine("Name: {0} {1}", key.GetFirstNameOfAStudent(), key.GetLastNameOfAStudent());
-        System.Console.WriteLine("Student identification code: {0}", key.GetIdRecordOfAStudent());
-        System.Console.WriteLine("Avarage Mark: {0}", key.GetAvarageMarkOfAStudent());
-        System.Console.WriteLine("Date of birth: {0}", key.GetDateOfBirthOfAStudent().ToString("yyyy-MM-dd"));
+        System.Console.WriteLine("Name: {0} {1}", key.StudentLastName, key.StudentFirstName);
+        System.Console.WriteLine("Student identification code: {0}", key.StudentIdRecord);
+        System.Console.WriteLine("Avarage Mark: {0}", key.StudentAvgMark);
+        System.Console.WriteLine("Date of birth: {0}", key.StudentDateOfBirth.ToString("yyyy-MM-dd"));
+    }
+
+    public static void PrintAllGroups(Faculty groupList)
+    {
+        for (int i = 0; i < groupList.UsefacultyGroups.Length; i++)
+        {
+            System.Console.WriteLine();
+            UI.PrintGroup(groupList.UsefacultyGroups[i]);
+            System.Console.WriteLine();
+        }
+    }
+
+    public static void PrintStudentsBySearch(Faculty facultyGroups, string name)
+    {
+        for (int i = 0; i < facultyGroups.UsefacultyGroups.Length; i++)
+        {
+            int studentSize = facultyGroups[i].FindStudentsBySearchInGroup(name).Length;
+
+            Student[] foundStudents = facultyGroups[i].FindStudentsBySearchInGroup(name);
+            
+            for (int y = 0; y < studentSize; y++)
+            {
+                System.Console.WriteLine("Group: {0}", facultyGroups[i].GroupName);
+                PrintStudent(foundStudents[y]);
+                System.Console.WriteLine();
+            }
+        }
     }
 }

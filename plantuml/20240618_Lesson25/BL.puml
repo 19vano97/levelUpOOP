@@ -1,0 +1,6 @@
+@startuml
+class BL {
+    + {static} Move(p:Point, dx:int, dy:int) : void
+    + {static} Move(pl:Polyline, dx:int, dy:int) : void
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class RecordId {
+    + UniqueRecordId : string <<get>>
+    + RecordId()
+}
+@enduml

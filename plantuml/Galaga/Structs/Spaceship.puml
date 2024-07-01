@@ -1,0 +1,10 @@
+@startuml
+struct Spaceship {
+    + id : int
+    + symbol : char
+    + healthPoint : int
+    + spaceshipSpeed : ulong
+}
+Spaceship --> "bluster" BlusterProperties
+Spaceship --> "spaceshipCoodinates" Position
+@enduml

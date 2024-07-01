@@ -1,0 +1,13 @@
+@startuml
+struct NewPoint {
+    + NewPoint(x:int, y:int)
+    + GetX() : int
+    + GetY() : int
+    + SetX(x:int) : void
+    + SetY(y:int) : void
+    + GetError() : ErrorState
+    + Move(dx:int, dy:int) : void
+    + MyProperty : int <<get>> <<set>>
+}
+NewPoint --> "Color" ConsoleColor
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class Singletone {
+    + {static} GetInstance() : Singletone
+}
+@enduml

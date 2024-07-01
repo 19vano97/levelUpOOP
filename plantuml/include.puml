@@ -1,0 +1,92 @@
+@startuml
+' !include ./20240625_LessonOperationOverloading/MyInt.puml
+' !include ./20240625_LessonOperationOverloading/Program.puml
+' !include ./20240618_Lesson25/UI.puml
+' !include ./20240618_Lesson25/BL.puml
+' !include ./20240618_Lesson25/Point.puml
+' !include ./20240618_Lesson25/ErrorState.puml
+' !include ./20240618_Lesson25/Polyline.puml
+' !include ./20240618_Lesson25/Program.puml
+' !include ./20240618_Lesson25Class/TestClass.puml
+' !include ./20240618_Lesson25Class/Point.puml
+' !include ./20240618_Lesson25Class/ErrorState.puml
+' !include ./20240618_Lesson25Class/Program.puml
+' !include ./20240628_HW26/MathOperators.puml
+' !include ./20240628_HW26/Program.puml
+' !include ./20240614_Lesson23/Program.puml
+' !include ./StudentStructHW20/UI.puml
+' !include ./StudentStructHW20/Subject.puml
+' !include ./StudentStructHW20/Supervisor.puml
+' !include ./StudentStructHW20/BL.puml
+' !include ./StudentStructHW20/GenerateGuid.puml
+' !include ./StudentStructHW20/LastNames.puml
+' !include ./StudentStructHW20/Specialization.puml
+' !include ./StudentStructHW20/Student.puml
+' !include ./StudentStructHW20/SubjectList.puml
+' !include ./StudentStructHW20/RecordId.puml
+' !include ./StudentStructHW20/Faculty.puml
+' !include ./StudentStructHW20/FirstNames.puml
+' !include ./StudentStructHW20/Group.puml
+' !include ./StudentStructHW20/Program.puml
+' !include ./Galaga/UI.puml
+' !include ./Galaga/EnemyManipulation.puml
+' !include ./Galaga/BL.puml
+' !include ./Galaga/LevelDesign.puml
+' !include ./Galaga/SpaceshipManipulation.puml
+' !include ./Galaga/Testzone.puml
+' !include ./Galaga/Menu.puml
+' !include ./Galaga/GamezoneManipulations.puml
+' !include ./Galaga/Program.puml
+' !include ./20240610_Lesson22/UI.puml
+' !include ./20240610_Lesson22/BL.puml
+' !include ./20240610_Lesson22/NewPoint.puml
+' !include ./20240610_Lesson22/ErrorState.puml
+' !include ./20240610_Lesson22/Program.puml
+!include ./20240628_Lesson_Inheritance/Circle.puml
+!include ./20240628_Lesson_Inheritance/Rectange.puml
+!include ./20240628_Lesson_Inheritance/Point.puml
+!include ./20240628_Lesson_Inheritance/Program.puml
+' !include ./20240621_Singletone/Singletone.puml
+' !include ./20240621_Singletone/Program.puml
+' !include ./20240618_Lesson25/Properties/AssemblyInfo.puml
+' !include ./Galaga/Enums/MenuList.puml
+' !include ./Galaga/Enums/Movements.puml
+' !include ./Galaga/Enums/LevelEnums.puml
+' !include ./Galaga/Structs/Spaceship.puml
+' !include ./Galaga/Structs/GameProperty.puml
+' !include ./Galaga/Structs/GameLevelStruct.puml
+' !include ./Galaga/Structs/Position.puml
+' !include ./Galaga/Structs/BlusterProperties.puml
+' !include ./Galaga/AttackBluster/AttackBlusterUI.puml
+' !include ./Galaga/AttackBluster/AttackBlusterBL.puml
+' !include ./20240625_LessonOperationOverloading/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240625_LessonOperationOverloading/obj/Debug/net8.0/20240625_LessonOperationOverloading.AssemblyInfo.puml
+' !include ./20240625_LessonOperationOverloading/obj/Debug/net8.0/20240625_LessonOperationOverloading.GlobalUsings.g.puml
+' !include ./20240618_Lesson25/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240618_Lesson25/obj/Debug/net8.0/20240618_Lesson25.GlobalUsings.g.puml
+' !include ./20240618_Lesson25/obj/Debug/net8.0/20240618_Lesson25.AssemblyInfo.puml
+' !include ./20240618_Lesson25Class/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240618_Lesson25Class/obj/Debug/net8.0/20240618_Lesson25Class.AssemblyInfo.puml
+' !include ./20240618_Lesson25Class/obj/Debug/net8.0/20240618_Lesson25Class.GlobalUsings.g.puml
+' !include ./20240628_HW26/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240628_HW26/obj/Debug/net8.0/20240628_HW26.GlobalUsings.g.puml
+' !include ./20240628_HW26/obj/Debug/net8.0/20240628_HW26.AssemblyInfo.puml
+' !include ./20240614_Lesson23/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240614_Lesson23/obj/Debug/net8.0/20240614_Lesson23.GlobalUsings.g.puml
+' !include ./20240614_Lesson23/obj/Debug/net8.0/20240614_Lesson23.AssemblyInfo.puml
+' !include ./StudentStructHW20/obj/Debug/net8.0/StudentStructHW20.AssemblyInfo.puml
+' !include ./StudentStructHW20/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./StudentStructHW20/obj/Debug/net8.0/StudentStructHW20.GlobalUsings.g.puml
+' !include ./Galaga/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./Galaga/obj/Debug/net8.0/Galaga.GlobalUsings.g.puml
+' !include ./Galaga/obj/Debug/net8.0/Galaga.AssemblyInfo.puml
+' !include ./20240610_Lesson22/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240610_Lesson22/obj/Debug/net8.0/20240610_Lesson22.GlobalUsings.g.puml
+' !include ./20240610_Lesson22/obj/Debug/net8.0/20240610_Lesson22.AssemblyInfo.puml
+' !include ./20240628_Lesson_Inheritance/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+!include ./20240628_Lesson_Inheritance/obj/Debug/net8.0/20240628_Lesson_Inheritance.AssemblyInfo.puml
+!include ./20240628_Lesson_Inheritance/obj/Debug/net8.0/20240628_Lesson_Inheritance.GlobalUsings.g.puml
+' !include ./20240621_Singletone/obj/Debug/net8.0/20240621_Singletone.AssemblyInfo.puml
+' !include ./20240621_Singletone/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
+' !include ./20240621_Singletone/obj/Debug/net8.0/20240621_Singletone.GlobalUsings.g.puml
+@enduml

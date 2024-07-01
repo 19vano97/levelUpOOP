@@ -1,0 +1,9 @@
+@startuml
+class UI {
+    + {static} Show(p:Point) : void
+    + {static} Show(x:int, y:int) : void
+    + {static} Hide(x:int, y:int) : void
+    + {static} InputPoint() : Point
+    + {static} Show(pl:Polyline) : void
+}
+@enduml

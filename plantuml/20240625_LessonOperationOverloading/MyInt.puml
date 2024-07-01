@@ -1,0 +1,8 @@
+@startuml
+class MyInt {
+    + MyInt(number:int)
+    + Number : int <<get>>
+    + {static} Add(firstArg:MyInt, secondArg:MyInt) : MyInt
+    + Add(other:MyInt) : MyInt
+}
+@enduml

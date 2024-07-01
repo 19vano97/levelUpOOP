@@ -1,0 +1,6 @@
+@startuml
+class Testzone {
+    + {static} PrintSpaceShipArray(allSpaceships:Spaceship[]) : void
+    + {static} PrintAmountOfHero(gamezone:char[,], hero:Spaceship) : int
+}
+@enduml

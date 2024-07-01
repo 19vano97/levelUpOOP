@@ -1,0 +1,8 @@
+@startuml
+enum LevelEnums {
+    None,
+    Low,
+    Medium,
+    Hard,
+}
+@enduml

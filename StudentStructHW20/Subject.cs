@@ -2,6 +2,12 @@
 
 public struct Subject
 {
-    public SubjectList subjectName;
-    public Specialization subjectSpecialization;
+    private SubjectList _subjectName;
+
+    public SubjectList UseSubjectName
+    {
+        get { return _subjectName; }
+        set { _subjectName = value; }
+    }
+    
 }

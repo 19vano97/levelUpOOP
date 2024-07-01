@@ -1,0 +1,10 @@
+@startuml
+struct Point {
+    + Point(x:int, y:int)
+    + Point(coord:int)
+    + X : int <<get>> <<set>>
+    + Y : int <<get>> <<set>>
+    + Move(dx:int, dy:int) : void
+}
+Point --> "Error" ErrorState
+@enduml

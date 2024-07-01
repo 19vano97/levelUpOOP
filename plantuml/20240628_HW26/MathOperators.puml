@@ -1,0 +1,11 @@
+@startuml
+class MathOperators {
+    + MathOperators(param:int)
+    + MathOperators(param1:int, param2:int)
+    + MathOperators()
+    + GetNumber1 : int <<get>>
+    + GetNumber2 : int <<get>>
+    + {static} GetDefaultFrationBasedOnDouble(fraction:double) : MathOperators
+    + {static} MinimizeFraction(numerator:int, denumerator:int) : int[]
+}
+@enduml

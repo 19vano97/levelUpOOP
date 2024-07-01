@@ -1,0 +1,17 @@
+@startuml
+class BL {
+    + {static} CreateGroup(supervisorList:Supervisor[], idRecords:string[], initGroupName:string) : Group
+    + {static} GetDateRandom(yearMin:int, yearMax:int) : DateTime
+    + {static} GetRandomFirstname() : string
+    + {static} GetRandomLastname() : string
+    + {static} GetRandomInt(minValue:int, maxValue:int) : int
+    + {static} GenerateStudentsMarksWithSubjects(subjectsList:Subject[]) : int[,]
+    + {static} GenerateMarkOfOneStudentRandom(listOfSubjects:Subject[]) : int[]
+    + {static} GetRandomSupervisors(value:int) : Supervisor[]
+    + {static} GetRandomSpecialization() : Specialization
+    + {static} InitArrayOfEmptyGroups(supervisorList:Supervisor[], idRecords:string[], value:int) : Faculty
+    + {static} GenerateRandomRecordId(idRecords:string[]) : string
+    + {static} CheckUniqueString(idRecords:string[], idRecordToCheck:string) : bool
+    + {static} AddRecordToId(idRecords:string[], idRecordToAdd:string) : void
+}
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class AttackBlusterUI {
+    + {static} MoveBlusterShot(gamezone:char[,], attacker:Spaceship, isEnemyShot:bool) : void
+    + {static} ShootByBluster(currentGameProperties:GameProperty, attacker:Spaceship, isEnemyShot:bool) : void
+    + {static} GetHeroBlusterShot() : char
+    + {static} GetEnemyBlusterShot() : char
+    + {static} GetEnemyDestroyed() : char
+}
+@enduml

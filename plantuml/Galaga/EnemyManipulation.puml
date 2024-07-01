@@ -1,0 +1,9 @@
+@startuml
+class EnemyManipulation {
+    + {static} MoveAutomiticallyEnemy(currentGameProperties:GameProperty, enemy:Spaceship) : void
+    + {static} GetRandomStepOfDirectionForEnemy(gamezone:char[,], enemy:Spaceship) : Movements
+    + {static} GenerateAmountOfEnemiesOnStart(currentGameProperties:GameProperty) : void
+    + {static} MoveAndShootEnemies(currentGameProperties:GameProperty) : void
+    + {static} GetAmountOfEnemies(allSpaceships:Spaceship[]) : int
+}
+@enduml

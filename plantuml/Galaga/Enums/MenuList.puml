@@ -1,0 +1,8 @@
+@startuml
+enum MenuList {
+    None,
+    NewGame,
+    ChooseLevel,
+    Exit,
+}
+@enduml

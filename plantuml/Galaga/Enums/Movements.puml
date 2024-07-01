@@ -1,0 +1,9 @@
+@startuml
+enum Movements {
+    None,
+    Up,
+    Down,
+    Left,
+    Right,
+}
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+enum Specialization {
+    None,
+    Econimic,
+    Physics,
+    ComputerScience,
+    SystemAnalyzies,
+    Cybersecurity,
+    Electronics,
+    Telecommunication,
+}
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+class CheckPoint {
+    + {static} InstanceCount : int <<get>> <<set>>
+    + CheckPoint(x:int, y:int)
+    + CheckPoint(coord:int)
+    + Y : int <<get>> <<set>>
+    + X : int <<get>> <<set>>
+    + Move(dx:int, dy:int) : void
+    + CheckPoint()
+    + CheckPoint(source:CheckPoint)
+}
+@enduml

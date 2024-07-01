@@ -1,0 +1,7 @@
+@startuml
+class Circle {
+    + Circle(x:int, y:int, r:int)
+    + GetCircle : int <<get>> <<set>>
+}
+CheckPoint <|-- Circle
+@enduml

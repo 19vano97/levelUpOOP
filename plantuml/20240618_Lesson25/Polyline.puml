@@ -1,0 +1,18 @@
+@startuml
+struct Polyline {
+    + <<const>> DEFAULT_CAPACITY : int = 5
+    + Polyline(capacity:int)
+    + Polyline(p1:Point, p2:Point)
+    + Polyline(points:Point[])
+    + Capacity : int <<get>>
+    + Size : int <<get>>
+    + AddPoint(p:Point) : void
+    + DelelePoint(position:int) : Point
+    + TryDelelePoint(p:Point) : bool
+    + FindPosition(p:Point) : int
+    + GetPoint(index:int) : Point
+    + SetPoint(index:int, p:Point) : void
+    + UpdatePoint(source:Point, destination:Point) : bool
+    + Move(dx:int, dy:int) : void
+}
+@enduml

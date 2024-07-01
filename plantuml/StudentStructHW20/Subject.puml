@@ -1,0 +1,5 @@
+@startuml
+struct Subject {
+}
+Subject --> "UseSubjectName" SubjectList
+@enduml

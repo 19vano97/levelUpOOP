@@ -1,0 +1,13 @@
+@startuml
+class UI {
+    + {static} GetHeroSymbol() : char
+    + {static} GetEnemySymbol() : char
+    + {static} SetDefaultPosition(gamezone:char[,]) : void
+    + {static} GetDefaultPosition(gamezone:char[,]) : Position
+    + {static} PrintEnemy(gamezone:char[,], enemy:Spaceship) : char[,]
+    + {static} PrintShortInfoAboutSpaceShip(gamezone:char[,], spaceshipInfo:Spaceship, score:int) : void
+    + {static} PrintShortInfoAboutSpaceShip(allSpaceships:Spaceship[]) : void
+    + {static} GetIntInput(message:string) : int
+    + {static} PrintScreenOfGamezone(gamezone:char[,]) : void
+}
+@enduml

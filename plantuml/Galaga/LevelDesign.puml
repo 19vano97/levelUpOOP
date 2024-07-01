@@ -1,0 +1,6 @@
+@startuml
+class LevelDesign {
+    + {static} GetLevelOfDifficulty(levelName:LevelEnums) : GameLevelStructure
+    + {static} ChooseLevelFromAList() : LevelEnums
+}
+@enduml

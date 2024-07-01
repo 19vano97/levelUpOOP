@@ -1,0 +1,13 @@
+@startuml
+class Point {
+    + {static} InstanceCount : int <<get>> <<set>>
+    + Point(x:int, y:int)
+    + Point(coord:int)
+    + X : int <<get>> <<set>>
+    + Y : int <<get>> <<set>>
+    + Move(dx:int, dy:int) : void
+    + Point()
+    + Point(source:Point)
+}
+Point --> "Error" ErrorState
+@enduml
