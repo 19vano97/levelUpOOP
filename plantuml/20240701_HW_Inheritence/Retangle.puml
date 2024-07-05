@@ -1,0 +1,6 @@
+@startuml
+class Retangle {
+    + Retangle(x:int, y:int, length:int)
+}
+Quadrilateral <|-- Retangle
+@enduml

@@ -8,7 +8,6 @@ class Group {
     + AddNewStudentsToGroupFromScratch(idRecords:string[]) : void
     + ChangeSubjectsForStudents() : void
     + CreateCopyOfGroup() : Group
-    + Group(groupToCopy:Group)
     + GetListOfSubjects(amountOfSubjects:int) : void
     + FindStudentsBySearchInGroup(name:string) : Student[]
 }

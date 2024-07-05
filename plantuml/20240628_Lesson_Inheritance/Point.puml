@@ -1,6 +1,5 @@
 @startuml
 class CheckPoint {
-    + {static} InstanceCount : int <<get>> <<set>>
     + CheckPoint(x:int, y:int)
     + CheckPoint(coord:int)
     + Y : int <<get>> <<set>>

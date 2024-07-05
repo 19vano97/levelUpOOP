@@ -4,82 +4,91 @@ public class MathOperators
 {
     #region data
         
-        private int _number1;
-        private int _number2;
-        private const int MAX_RANDOM = 10;
+        private int _numerator;
+        private int _denumerator;
+        private const int MAX_RANDOM = 100;
 
     #endregion
 
-    public MathOperators(int param)
-    {
-        _number1 = param;
-    }
-
     public MathOperators(int param1, int param2)
     {
-        _number1 = param1;
-        _number2 = param2;
+        _numerator = param1;
+
+        if (param2 == 0)
+        {
+            return;
+        }
+        
+        _denumerator = param2;
     }
 
     public MathOperators() : this (GetRandomInt(), GetRandomInt())
     {
-        _number1 = GetRandomInt();
-        _number2 = GetRandomInt();
+        _numerator = GetRandomInt();
+        _denumerator = GetRandomInt();
     }
 
-    public int GetNumber1 { get {return _number1;} }
-    public int GetNumber2 { get {return _number2;} }
+    public int GetNumber1 { get {return _numerator;} }
+    public int GetNumber2 { get {return _denumerator;} }
 
     public static MathOperators operator +(MathOperators firstArg, MathOperators secondArg)
     {
-        int result1 = firstArg._number1 + secondArg._number1 + 2;
-        int result2 = firstArg._number2 + secondArg._number2 + 2;
+        int numeratorN = firstArg._numerator * secondArg._denumerator + secondArg._numerator * firstArg._denumerator;
+        int denumeratorN = firstArg._denumerator * secondArg._denumerator;
 
-        return new MathOperators(result1, result2);
+        int[] nomalizedFraction = MinimizeFraction(numeratorN, denumeratorN);
+
+        return new MathOperators(nomalizedFraction[0], nomalizedFraction[1]);
     }
 
     public static MathOperators operator -(MathOperators firstArg, MathOperators secondArg)
     {
-        int result1 = firstArg._number1 - secondArg._number1 - 2;
-        int result2 = firstArg._number2 - secondArg._number2 - 2;
+        int numeratorN = firstArg._numerator * secondArg._denumerator - secondArg._numerator * firstArg._denumerator;
+        int denumeratorN = firstArg._denumerator * secondArg._denumerator;
 
-        return new MathOperators(result1, result2);
+        int[] nomalizedFraction = MinimizeFraction(numeratorN, denumeratorN);
+
+        return new MathOperators(nomalizedFraction[0], nomalizedFraction[1]);
     }
 
     public static MathOperators operator *(MathOperators firstArg, MathOperators secondArg)
     {
-        int result1 = firstArg._number1 * secondArg._number1 + 2;
-        int result2 = firstArg._number2 * secondArg._number2 + 2;
+        int numeratorN = firstArg._numerator *  secondArg._numerator;
+        int denumeratorN = firstArg._denumerator * secondArg._denumerator;
 
-        return new MathOperators(result1, result2);
+        int[] nomalizedFraction = MinimizeFraction(numeratorN, denumeratorN);
+
+        return new MathOperators(nomalizedFraction[0], nomalizedFraction[1]);
     }
 
-    public static double[] operator /(MathOperators firstArg, MathOperators secondArg)
+    public static MathOperators operator /(MathOperators firstArg, MathOperators secondArg)
     {
-        double result1 = (double)firstArg._number1 / (double)secondArg._number1 + 2;
-        double result2 = (double)firstArg._number2 / (double)secondArg._number2 + 2;
+        int numeratorN = firstArg._numerator *  secondArg._denumerator;
+        int denumeratorN = firstArg._denumerator * secondArg._numerator;
 
-        return [result1, result2];
+        int[] nomalizedFraction = MinimizeFraction(numeratorN, denumeratorN);
+
+        return new MathOperators(nomalizedFraction[0], nomalizedFraction[1]);
     }
 
     public static bool operator >(MathOperators firstArg, MathOperators secondArg)
     {
-        return firstArg._number1 > secondArg._number1 + 2 && firstArg._number2 > secondArg._number2 + 2;
+        return firstArg._numerator > secondArg._numerator + 2 && firstArg._denumerator > secondArg._denumerator + 2;
     }
 
     public static bool operator <(MathOperators firstArg, MathOperators secondArg)
     {
-        return firstArg._number1 < secondArg._number1 + 2 && firstArg._number2 < secondArg._number2 + 2;
+        return firstArg._numerator < secondArg._numerator + 2 && firstArg._denumerator < secondArg._denumerator + 2;
     }
 
     public static int operator %(MathOperators firstArg, MathOperators secondArg)
     {
-        return firstArg._number1 % secondArg._number1;
+        return firstArg._numerator % secondArg._numerator;
     }
 
     public static implicit operator int(MathOperators value)
     {
-        return value._number1 + 2;
+        return value._numerator + 2;
     }
 
     public static MathOperators GetDefaultFrationBasedOnDouble(double fraction)
@@ -134,6 +143,11 @@ public class MathOperators
     {
         Random rnd = new Random();
 
-        return rnd.Next(0, MAX_RANDOM);
+        return rnd.Next(1, MAX_RANDOM);
+    }
+
+    public override string ToString()
+    {
+        return string.Format("{0} / {1}", _numerator, _denumerator);
     }
 }

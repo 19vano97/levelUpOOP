@@ -1,0 +1,6 @@
+@startuml
+class Square {
+    + Square(x:int, y:int, length:int)
+}
+Quadrilateral <|-- Square
+@enduml

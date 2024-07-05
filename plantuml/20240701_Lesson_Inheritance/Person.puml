@@ -1,0 +1,10 @@
+@startuml
+class Person {
+    + IPN : long <<get>> <<set>>
+    + Name : string <<get>> <<set>>
+    + Person(IPNN:long, name:string)
+    + <<override>> Equals(obj:object?) : bool
+    + <<override>> ToString() : string
+    + GetCopy() : Person
+}
+@enduml

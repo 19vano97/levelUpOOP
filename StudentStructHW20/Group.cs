@@ -299,11 +299,6 @@ public class Group
         return groupCopy;
     }
 
-    public Group(Group groupToCopy) : this()
-    {
-        
-    }
-
     public void GetListOfSubjects(int amountOfSubjects = -1)
     {
         if (amountOfSubjects == -1)
