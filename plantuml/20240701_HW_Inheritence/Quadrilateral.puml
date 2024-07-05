@@ -1,0 +1,8 @@
+@startuml
+class Quadrilateral {
+    + Quadrilateral(x:int, y:int, length:int)
+    + GetLength : int <<get>> <<set>>
+    + CalcLength(p1:Point, p2:Point) : double
+}
+Point <|-- Quadrilateral
+@enduml

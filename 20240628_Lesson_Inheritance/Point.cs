@@ -5,18 +5,8 @@
     {
         #region ---=== private data ===---
 
-        private int _x;
-        private int _y;
-
-        private static int _instanceCount = 0;
-
-        public static int InstanceCount
-        {
-            get{return InstanceCount;}
-            set{InstanceCount = value;}
-        }
-
-    
+            private int _x;
+            private int _y;
 
         #endregion
 

@@ -1,0 +1,5 @@
+@startuml
+class UI {
+    + {static} DrawQuadrilateral(points:Point[]) : void
+}
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class Point {
+    + Point(x:int, y:int)
+    + Point()
+    + CoordX : int <<get>> <<set>>
+    + CoordY : int <<get>> <<set>>
+    + SetPoint(x:int, y:int) : void
+}
+@enduml
