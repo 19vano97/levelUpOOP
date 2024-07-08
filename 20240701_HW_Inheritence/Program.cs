@@ -4,38 +4,61 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4);
+        #if DEBUG
 
-        Square newSquare = new Square(newQuadrilateral);
+            // Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4);
 
-        UI.DrawQuadrilateral(newSquare.Points);
-        Console.ReadKey();
+            // Square newSquare = new Square(newQuadrilateral);
 
-        Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
-        UI.DrawQuadrilateral(newRectangle.Points);
+            // Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
 
-        Console.ReadKey();
+            // newSquare.Rotate45(newSquare.Points);
 
-        newSquare.Rotate45(newSquare.Points);
-        UI.DrawQuadrilateral(newSquare.Points);
+            // newSquare.Resize(newSquare.Points, 5);
 
-        Console.ReadKey();
+            // newRectangle.Resize(newRectangle.Points, 2);
 
-        newSquare.Resize(newSquare.Points, 5);
-        UI.DrawQuadrilateral(newSquare.Points);
+            // newRectangle.Rotate45(newRectangle.Points);
+            
+        #endif
 
-        Console.ReadKey();
 
-        
+        #region main
 
-        newRectangle.Resize(newRectangle.Points, 2);
-        UI.DrawQuadrilateral(newRectangle.Points);
+            Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4);
+    
+            Square newSquare = new Square(newQuadrilateral);
+    
+            UI.DrawQuadrilateral(newSquare.Points);
+            Console.ReadKey();
+    
+            Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
+            UI.DrawQuadrilateral(newRectangle.Points);
+    
+            Console.ReadKey();
+    
+            newSquare.Rotate45(newSquare.Points);
+            UI.DrawQuadrilateral(newSquare.Points);
+    
+            Console.ReadKey();
+    
+            newSquare.Resize(newSquare.Points, 5);
+            UI.DrawQuadrilateral(newSquare.Points);
+    
+            Console.ReadKey();
+    
+            
+    
+            newRectangle.Resize(newRectangle.Points, 2);
+            UI.DrawQuadrilateral(newRectangle.Points);
+    
+            Console.ReadKey();
+    
+            newRectangle.Rotate45(newRectangle.Points);
+            UI.DrawQuadrilateral(newRectangle.Points);
+    
+            Console.ReadKey();
 
-        Console.ReadKey();
-
-        newRectangle.Rotate45(newRectangle.Points);
-        UI.DrawQuadrilateral(newRectangle.Points);
-
-        Console.ReadKey();
+        #endregion
     }
 }

@@ -53,7 +53,7 @@ public class Point
         }
     }
 
-    public void SetPoint(int x, int y)
+    public void UpdatePoint(int x, int y)
     {
         _x = x;
         _y = y;

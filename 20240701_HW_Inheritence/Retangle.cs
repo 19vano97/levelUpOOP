@@ -9,15 +9,19 @@ public class Rectangle : Quadrilateral
 
     #endregion
 
-    public Rectangle(int x, int y, int length, int height) : base(x, y, length)
-    {
-        _height = height;
-        _points = CalculatePoints(x, y, length, _height);
-    }
+    #region default ctors
 
-    public Rectangle(Quadrilateral newQuadrilateral, int height) : 
-        this(newQuadrilateral.CoordX, newQuadrilateral.CoordY, newQuadrilateral.GetLength, height)
-    {}
+        public Rectangle(int x, int y, int length, int height) : base(x, y, length)
+        {
+            _height = height;
+            _points = CalculatePoints(x, y, length, _height);
+        }
+    
+        public Rectangle(Quadrilateral newQuadrilateral, int height) : 
+            this(newQuadrilateral.CoordX, newQuadrilateral.CoordY, newQuadrilateral.GetLength, height)
+        {}
+        
+    #endregion
 
 
     public int heightOfRectangle
