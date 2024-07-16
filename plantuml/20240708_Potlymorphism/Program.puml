@@ -1,0 +1,10 @@
+@startuml
+class Program {
+    + {static} DoF1AsRefA(obj:A) : void
+    + {static} DoF1AsRefB(obj:B) : void
+    + {static} DoF2AsRefA(obj:A) : void
+    + {static} DoF2AsRefB(obj:B) : void
+    + {static} DoF1(obj:A) : void
+    + {static} DoF2(obj:A) : void
+}
+@enduml

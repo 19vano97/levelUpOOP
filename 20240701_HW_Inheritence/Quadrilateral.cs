@@ -1,6 +1,6 @@
 ﻿namespace _20240701_HW_Inheritence;
 
-public class Quadrilateral : Point
+public abstract class Quadrilateral : Point
 {
     #region data
         protected int _length;
@@ -10,14 +10,14 @@ public class Quadrilateral : Point
 
     #region default ctors
 
-        public Quadrilateral(int x, int y, int length) : base(x, y)
+        public Quadrilateral(int x, int y, int length, Picture pictureOwner) : base(x, y, pictureOwner)
         {
             _length = length;
         }
 
     #endregion
 
-    public int GetLength 
+    public int Length 
     { 
         get
         {
@@ -40,88 +40,35 @@ public class Quadrilateral : Point
         } 
     }
 
-    // protected Point[] CalculatePoints(int x, int y, int length, int height = -1)
-    // {
-    //     #region DEBUG
-    //         int consoleX = 100;
-    //         int consoleY = 25;
-    //     #endregion
-
-    //     // int consoleX = Console.WindowWidth;
-    //     // int consoleY = Console.WindowHeight;
-
-    //     Point[] points = new Point[AMOUNT_OF_ANGLES];
-
-    //     points[0] = new Point(x, y);   //p1
-
-    //     if (x + length < consoleX)
-    //     {
-    //         points[1] = new Point(x + length, y);    //p2
-    //     }
-    //     else
-    //     {
-    //         points[1] = new Point(x - length, y);    //p2
-    //     }
-
-    //     if (height <= -1)
-    //     {
-    //         if (y + height < consoleY)
-    //         {
-    //             points[2] = new Point(x, y + length);    //p3
-    //             points[3] = new Point(points[1].CoordX, y + length);   //p4
-    //         }
-    //         else
-    //         {
-    //             points[2] = new Point(x, y - length);    //p3
-    //             points[3] = new Point(points[1].CoordX, y - length);   //p4
-    //         }
-    //     }
-    //     else
-    //     {
-    //         if (y + length < consoleY)
-    //         {
-    //             points[2] = new Point(x, y + height);    //p3
-    //             points[3] = new Point(points[1].CoordX, y + height);   //p4
-    //         }
-    //         else
-    //         {
-    //             points[2] = new Point(x, y - height);    //p3
-    //             points[3] = new Point(points[1].CoordX, y - height);   //p4
-    //         }
-    //     }
-
-    //     return points;
-    // }
-
     protected Point[] CalculatePoints(int x, int y, int length, int height = -1)
     {
         Point[] points = new Point[AMOUNT_OF_ANGLES];
 
-        points[0] = new Point(x, y);   //p1
+        points[0] = new Point(x, y, base.PictureOwner);   //p1
 
-        points[1] = new Point(x + length, y);    //p2
+        points[1] = new Point(x + length, y, base.PictureOwner);    //p2
 
 
         if (height <= -1)
         {
-            points[2] = new Point(x, y + length);    //p3
-            points[3] = new Point(points[1].CoordX, y + length);   //p4
+            points[2] = new Point(x, y + length, base.PictureOwner);    //p3
+            points[3] = new Point(points[1].CoordX, y + length, base.PictureOwner);   //p4
         }
         else
         {
-            points[2] = new Point(x, y + height);    //p3
-            points[3] = new Point(points[1].CoordX, y + height);   //p4
+            points[2] = new Point(x, y + height, base.PictureOwner);    //p3
+            points[3] = new Point(points[1].CoordX, y + height, base.PictureOwner);   //p4
         }
 
         return points;
     }
 
-    public void Resize(Point[] points, int index)
+    public virtual void Resize(Point[] points, int index)
     {
-        points[0].UpdatePoint(points[0].CoordX, points[0].CoordY);
-        points[1].UpdatePoint(points[1].CoordX * index, points[1].CoordY);
-        points[2].UpdatePoint(points[2].CoordX, points[2].CoordY * index);
-        points[3].UpdatePoint(points[3].CoordX * index, points[3].CoordY * index);
+        points[0].UpdatePoint(points[0].CoordX / index, points[0].CoordY / index);
+        points[1].UpdatePoint(points[1].CoordX * index, points[1].CoordY / index);
+        points[2].UpdatePoint(points[2].CoordX / index, points[2].CoordY * index);
+        points[3].UpdatePoint(points[3].CoordX * index, points[3].CoordY / index);
     }
 
     public void Rotate45(Point[] points)

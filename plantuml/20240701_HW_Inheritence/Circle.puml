@@ -1,0 +1,8 @@
+@startuml
+class Circle {
+    + Circle(x:int, y:int, radius:int, pictureFile:Picture)
+    + Radius : int <<get>>
+    + Resize(index:int) : void
+}
+Point <|-- Circle
+@enduml

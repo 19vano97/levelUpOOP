@@ -1,0 +1,6 @@
+@startuml
+class Container {
+    + Container(items:A[])
+    + DoF2() : void
+}
+@enduml

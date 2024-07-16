@@ -1,6 +1,9 @@
 @startuml
-class Retangle {
-    + Retangle(x:int, y:int, length:int)
+class Rectangle {
+    + Rectangle(x:int, y:int, length:int, height:int, pictureFile:Picture)
+    + Rectangle(newQuadrilateral:Quadrilateral, height:int)
+    + heightOfRectangle : int <<get>> <<set>>
+    + <<override>> Move(x:int, y:int) : void
 }
-Quadrilateral <|-- Retangle
+Quadrilateral <|-- Rectangle
 @enduml

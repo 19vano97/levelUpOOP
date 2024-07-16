@@ -1,0 +1,5 @@
+@startuml
+class D <<sealed>> {
+}
+C <|-- D
+@enduml

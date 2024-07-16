@@ -1,4 +1,6 @@
-﻿namespace _20240701_HW_Inheritence;
+﻿using System.ComponentModel;
+
+namespace _20240701_HW_Inheritence;
 
 public class Square : Quadrilateral
 {
@@ -6,13 +8,13 @@ public class Square : Quadrilateral
 
     #region default ctors
 
-        public Square(int x, int y, int length) : base(x, y, length)
+        public Square(int x, int y, int length, Picture pictureOwner) : base(x, y, length, pictureOwner)
         {
             _points = CalculatePoints(x, y, length);
         }
     
         public Square(Quadrilateral newQuadrilateral) : 
-            this (newQuadrilateral.CoordX, newQuadrilateral.CoordY, newQuadrilateral.GetLength)
+            this (newQuadrilateral.CoordX, newQuadrilateral.CoordY, newQuadrilateral.Length, newQuadrilateral.PictureOwner)
         {
             
         }
@@ -25,5 +27,16 @@ public class Square : Quadrilateral
         {
             return _points;
         }
+    }
+
+    public override void Move(int x, int y)
+    {
+        for (int i = 0; i < _points.Length; i++)
+        {
+                _points[i].UpdatePoint(_points[i].CoordX + x, _points[i].CoordY + y);
+        }
+
+        base.CoordX += x;
+        base.CoordY += y;
     }
 }

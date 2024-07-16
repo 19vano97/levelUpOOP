@@ -1,0 +1,7 @@
+@startuml
+class B {
+    + <<new>> f1() : void
+    + <<override>> f2() : void
+}
+A <|-- B
+@enduml

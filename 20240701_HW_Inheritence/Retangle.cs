@@ -11,14 +11,14 @@ public class Rectangle : Quadrilateral
 
     #region default ctors
 
-        public Rectangle(int x, int y, int length, int height) : base(x, y, length)
+        public Rectangle(int x, int y, int length, int height, Picture pictureOwner) : base(x, y, length, pictureOwner)
         {
             _height = height;
             _points = CalculatePoints(x, y, length, _height);
         }
     
         public Rectangle(Quadrilateral newQuadrilateral, int height) : 
-            this(newQuadrilateral.CoordX, newQuadrilateral.CoordY, newQuadrilateral.GetLength, height)
+            this(newQuadrilateral.CoordX, newQuadrilateral.CoordY, newQuadrilateral.Length, height, newQuadrilateral.PictureOwner)
         {}
         
     #endregion
@@ -52,6 +52,17 @@ public class Rectangle : Quadrilateral
         {
             return _points;
         }
+    }
+
+    public override void Move(int x, int y)
+    {
+        for (int i = 0; i < _points.Length; i++)
+        {
+                _points[i].UpdatePoint(_points[i].CoordX + x, _points[i].CoordY + y);
+        }
+
+        base.CoordX += x;
+        base.CoordY += y;
     }
 
 }

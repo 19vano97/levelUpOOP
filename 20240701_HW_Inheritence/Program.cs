@@ -6,58 +6,104 @@ internal class Program
     {
         #if DEBUG
 
-            // Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4);
+            Picture pic1 = new Picture("pic1");
 
-            // Square newSquare = new Square(newQuadrilateral);
+            Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4, pic1);
+    
+            Square newSquare = new Square(newQuadrilateral);
+    
+            Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
+    
+            newSquare.Rotate45(newSquare.Points);
+    
+            newRectangle.Resize(newRectangle.Points, 2);
+    
+            newRectangle.Rotate45(newRectangle.Points);
 
-            // Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
 
-            // newSquare.Rotate45(newSquare.Points);
+            Circle newCircle = new Circle(10, 10, 3, pic1);
+            Circle circle = new Circle(20, 10, 5, pic1);
 
-            // newSquare.Resize(newSquare.Points, 5);
+            
+            circle.Resize(2);
 
-            // newRectangle.Resize(newRectangle.Points, 2);
+            CircleInSquare circleInSquareToDraw = new CircleInSquare(20, 5, 10, pic1);
+            circleInSquareToDraw.Resize(circleInSquareToDraw.Points, 2);
 
-            // newRectangle.Rotate45(newRectangle.Points);
+
+            Square squareForFigure = new Square(10, 10, 5, pic1);
+
+            pic1.Move(2, 2);
+
+            pic1.Add(newRectangle);
+            pic1.Add(newSquare);
+            pic1.Add(newCircle);
+
+            pic1.Move(4, 2);
             
         #endif
 
 
         #region main
 
-            Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4);
+            // Picture pic1 = new Picture("pic1");
+
+            // Quadrilateral newQuadrilateral = new Quadrilateral(12, 2, 4, pic1);
     
-            Square newSquare = new Square(newQuadrilateral);
+            // Square newSquare = new Square(newQuadrilateral);
     
-            UI.DrawQuadrilateral(newSquare.Points);
-            Console.ReadKey();
+            // UI.DrawQuadrilateral(newSquare.Points);
+            // Console.ReadKey();
     
-            Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
-            UI.DrawQuadrilateral(newRectangle.Points);
+            // Rectangle newRectangle = new Rectangle(newQuadrilateral, 3);
+            // UI.DrawQuadrilateral(newRectangle.Points);
     
-            Console.ReadKey();
+            // Console.ReadKey();
     
-            newSquare.Rotate45(newSquare.Points);
-            UI.DrawQuadrilateral(newSquare.Points);
+            // newSquare.Rotate45(newSquare.Points);
+            // UI.DrawQuadrilateral(newSquare.Points);
+            // Console.ReadKey();
     
-            Console.ReadKey();
+            // newRectangle.Resize(newRectangle.Points, 2);
+            // UI.DrawQuadrilateral(newRectangle.Points);
+            // Console.ReadKey();
     
-            newSquare.Resize(newSquare.Points, 5);
-            UI.DrawQuadrilateral(newSquare.Points);
-    
-            Console.ReadKey();
-    
+            // newRectangle.Rotate45(newRectangle.Points);
+            // UI.DrawQuadrilateral(newRectangle.Points);
+            // Console.ReadKey();
+
+            // Circle newCircle = new Circle(10, 10, 3, pic1);
+            // UI.DrawCircle(newCircle);
+            // Console.ReadKey();
+
+            // Circle circle = new Circle(20, 10, 5, pic1);
+            // UI.DrawCircle(circle);
+            // Console.ReadKey();
             
-    
-            newRectangle.Resize(newRectangle.Points, 2);
-            UI.DrawQuadrilateral(newRectangle.Points);
-    
-            Console.ReadKey();
-    
-            newRectangle.Rotate45(newRectangle.Points);
-            UI.DrawQuadrilateral(newRectangle.Points);
-    
-            Console.ReadKey();
+            // circle.Resize(2);
+
+            // UI.DrawCircle(circle);
+            // Console.ReadKey();
+
+            // CircleInSquare circleInSquareToDraw = new CircleInSquare(20, 5, 10, pic1);
+            // // UI.DrawCircleInSquare(circleInSquareToDraw);
+            // // Console.ReadKey();
+
+            // circleInSquareToDraw.Resize(circleInSquareToDraw.Points, 2);
+            // UI.DrawCircleInSquare(circleInSquareToDraw);
+            // Console.ReadKey();
+
+            // Square squareForFigure = new Square(10, 10, 5, pic1);
+            // // UI.DrawSquare(squareForFigure);
+            // Figure figure1 = new Figure(squareForFigure);
+            // pic1.AddFigure(figure1);
+
+            // pic1.Move(2, 2);
+
+            // pic1.AddFigure(newRectangle);
+            // pic1.AddFigure(newSquare);
+                       
+            
 
         #endregion
     }

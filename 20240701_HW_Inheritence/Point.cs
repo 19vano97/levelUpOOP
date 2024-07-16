@@ -1,5 +1,4 @@
-﻿
-namespace _20240701_HW_Inheritence;
+﻿namespace _20240701_HW_Inheritence;
 
 public class Point
 {
@@ -7,25 +6,30 @@ public class Point
 
         private int _x;
         private int _y;
+        protected Picture _pictureOwner;
 
     #endregion
 
     #region default ctors
 
-        public Point(int x, int y)
+        public Point(int x, int y, Picture pictureOwner)
         {
             _x = x;
             _y = y;
+            _pictureOwner = pictureOwner;
         }
     
-        public Point() : this (0, 0)
+        public Point(Picture pictureOwner) : this (0, 0, pictureOwner)
         {}
 
     #endregion
 
     public int CoordX 
     { 
-        get{return _x;}
+        get
+        {
+            return _x;
+        }
         set
         {
             if (_x < 0)
@@ -53,9 +57,26 @@ public class Point
         }
     }
 
+    public Picture PictureOwner
+    {
+        get
+        {
+            return _pictureOwner;
+        }
+    }
+
     public void UpdatePoint(int x, int y)
     {
         _x = x;
         _y = y;
     }
+
+    public virtual void Move(int x, int y)
+    {
+        _x += x;
+        _y += y;
+    }
+
+    public virtual void Resize(double index)
+    {}
 }

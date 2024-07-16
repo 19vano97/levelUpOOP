@@ -1,6 +1,8 @@
 @startuml
 class Square {
-    + Square(x:int, y:int, length:int)
+    + Square(x:int, y:int, length:int, pictureFile:Picture)
+    + Square(newQuadrilateral:Quadrilateral)
+    + <<override>> Move(x:int, y:int) : void
 }
 Quadrilateral <|-- Square
 @enduml

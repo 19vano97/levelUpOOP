@@ -23,6 +23,11 @@ public class Circle : CheckPoint
             _r = value;
         }
     }
-    
-    
+
+    public override void Resize(float delta)
+    {
+        _r *= (int)delta;
+    }
+
+
 }

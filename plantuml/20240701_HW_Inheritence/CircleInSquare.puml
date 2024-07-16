@@ -1,0 +1,8 @@
+@startuml
+class CircleInSquare {
+    + CircleInSquare(x:int, y:int, length:int, pictureFile:Picture)
+    + <<override>> Resize(points:Point[], index:int) : void
+}
+Square <|-- CircleInSquare
+CircleInSquare --> "UseCircle" Circle
+@enduml

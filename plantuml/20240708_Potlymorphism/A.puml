@@ -1,0 +1,6 @@
+@startuml
+class A {
+    + f1() : void
+    + <<virtual>> f2() : void
+}
+@enduml

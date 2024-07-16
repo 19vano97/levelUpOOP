@@ -1,0 +1,14 @@
+@startuml
+class Picture {
+    + Picture()
+    + Picture(fileName:string)
+    + FileName : string <<get>> <<set>>
+    + AddFigure(figureToAdd:Figure) : void
+    + AddFigure(rectangleToAdd:Rectangle) : void
+    + AddFigure(SquareToAdd:Square) : void
+    + AddFigure(circleToAdd:Circle) : void
+    + DeleteFigure(figureToDelete:Figure) : void
+    + <<virtual>> Move(x:int, y:int) : void
+    + <<virtual>> Resize(index:int) : void
+}
+@enduml
