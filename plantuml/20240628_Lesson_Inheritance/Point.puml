@@ -2,10 +2,11 @@
 class CheckPoint {
     + CheckPoint(x:int, y:int)
     + CheckPoint(coord:int)
-    + Y : int <<get>> <<set>>
-    + X : int <<get>> <<set>>
-    + Move(dx:int, dy:int) : void
-    + CheckPoint()
     + CheckPoint(source:CheckPoint)
+    + <<override>> Resize(delta:double) : void
+    + <<override>> GetView() : PictItem[]
+    + <<override>> ToString() : string
+    + <<virtual>> Rotate45() : void
 }
+Figure2d <|-- CheckPoint
 @enduml

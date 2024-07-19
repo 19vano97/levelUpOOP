@@ -1,0 +1,8 @@
+@startuml
+abstract class Quadrilateral {
+    + Quadrilateral(x:int, y:int, width:int)
+    + Width : int <<get>> <<set>>
+    + <<override>> Resize(delta:float) : void
+}
+Figure2d <|-- Quadrilateral
+@enduml

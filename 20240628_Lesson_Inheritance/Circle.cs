@@ -7,7 +7,7 @@ public class Circle : CheckPoint
     private int _r;
 
     public Circle(int x, int y, int r)
-        : base(x,  y) // is a key word that uses to call the parrent class
+        : base(x,  y)
     {
         _r = r;
     }
@@ -28,6 +28,7 @@ public class Circle : CheckPoint
     {
         _r *= (int)delta;
     }
+
 
 
 }

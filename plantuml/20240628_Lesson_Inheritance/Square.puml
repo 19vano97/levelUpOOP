@@ -1,0 +1,7 @@
+@startuml
+class Square {
+    + Square(x:int, y:int, width:int)
+    + <<override>> GetView() : PictItem[]
+}
+Quadrilateral <|-- Square
+@enduml

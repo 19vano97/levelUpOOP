@@ -1,0 +1,10 @@
+@startuml
+class Figure2d {
+    + Figure2d(x:int, y:int, symbol:char)
+    + Figure2d(fig:Figure2d)
+    + X : int <<get>> <<set>>
+    + Y : int <<get>> <<set>>
+    + Symbol : char <<get>> <<set>>
+    + ReplaceParams(fig2:Figure2d) : void
+}
+@enduml

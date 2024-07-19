@@ -1,14 +1,17 @@
 @startuml
 class Picture {
+    + <<const>> DEFAULT_FILENAME : string = "untitled"
     + Picture()
+    + Picture(figures:Point[])
     + Picture(fileName:string)
+    + Picture(fileName:string, figures:Point[])
     + FileName : string <<get>> <<set>>
-    + AddFigure(figureToAdd:Figure) : void
-    + AddFigure(rectangleToAdd:Rectangle) : void
-    + AddFigure(SquareToAdd:Square) : void
-    + AddFigure(circleToAdd:Circle) : void
-    + DeleteFigure(figureToDelete:Figure) : void
-    + <<virtual>> Move(x:int, y:int) : void
-    + <<virtual>> Resize(index:int) : void
+    + Add(figureToAdd:Point) : void
+    + Delete(figureToDelete:Point) : void
+    + <<override>> Move(x:int, y:int) : void
+    + <<override>> Resize(index:double) : void
+    + <<override>> Rotate45() : void
+    + <<override>> GetView() : Figure2d[]
 }
+Point <|-- Picture
 @enduml

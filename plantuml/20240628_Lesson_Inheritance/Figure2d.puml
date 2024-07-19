@@ -1,0 +1,10 @@
+@startuml
+abstract class Figure2d {
+    + X : int <<get>> <<set>>
+    + Y : int <<get>> <<set>>
+    + Figure2d(x:int, y:int)
+    + <<virtual>> Move(dx:int, dy:int) : void
+    + {abstract} Resize(delta:float) : void
+    + {abstract} GetView() : PictItem[]
+}
+@enduml

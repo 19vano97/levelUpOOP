@@ -1,4 +1,7 @@
-﻿namespace _20240701_HW_Inheritence;
+﻿using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
+
+namespace _20240701_HW_Inheritence;
 
 public class Point
 {
@@ -6,20 +9,18 @@ public class Point
 
         private int _x;
         private int _y;
-        protected Picture _pictureOwner;
 
     #endregion
 
     #region default ctors
 
-        public Point(int x, int y, Picture pictureOwner)
+        public Point(int x, int y)
         {
             _x = x;
             _y = y;
-            _pictureOwner = pictureOwner;
         }
     
-        public Point(Picture pictureOwner) : this (0, 0, pictureOwner)
+        public Point() : this (0, 0)
         {}
 
     #endregion
@@ -57,14 +58,6 @@ public class Point
         }
     }
 
-    public Picture PictureOwner
-    {
-        get
-        {
-            return _pictureOwner;
-        }
-    }
-
     public void UpdatePoint(int x, int y)
     {
         _x = x;
@@ -79,4 +72,13 @@ public class Point
 
     public virtual void Resize(double index)
     {}
+
+    public virtual void Rotate45()
+    {}
+
+    public virtual Figure2d[] GetView()
+    {
+        return new Figure2d[] { new Figure2d(_x, _y, '*') };
+    }
+    
 }

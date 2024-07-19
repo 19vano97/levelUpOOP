@@ -1,8 +1,11 @@
 @startuml
 class Circle {
-    + Circle(x:int, y:int, radius:int, pictureFile:Picture)
-    + Radius : int <<get>>
-    + Resize(index:int) : void
+    + Circle(x:int, y:int, radius:int)
+    + Radius : int <<get>> <<set>>
+    + Symbol : char <<get>>
+    + Update(x:int, y:int, r:int) : void
+    + <<override>> Resize(index:double) : void
+    + <<override>> GetView() : Figure2d[]
 }
 Point <|-- Circle
 @enduml

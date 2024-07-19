@@ -1,0 +1,7 @@
+@startuml
+struct PictItem {
+    + X : int
+    + Y : int
+    + Symbol : char
+}
+@enduml

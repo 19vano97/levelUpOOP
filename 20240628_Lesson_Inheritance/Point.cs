@@ -5,49 +5,51 @@ namespace _20240628_Lesson_Inheritance;
 
     public class CheckPoint : Figure2d
     {
+        #region ---=== methods for data processing ===---
 
-    
-
-        public CheckPoint(int x, int y) : base(x, y)
+        public CheckPoint(int x, int y) : base(x, y) 
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("ctor Point({0}, {1})", x, y);
         }
 
-        public CheckPoint(int coord) : this(coord, coord)
+        public CheckPoint(int coord) : base(coord, coord)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("ctor Point({0})", coord);
         }
 
-        
-        //destructor
+        // ctor copy
+        public CheckPoint(CheckPoint source)
+             : base(source._x, source._y)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("ctor Point(Point({0}, {1}))", source._x, source._y);
+        }
+
+        // destructor - dtor
         ~CheckPoint()
         {
-            
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("dtor Point({0}, {1})", _x, _y);
         }
 
-        public CheckPoint()
-            :this (0, 0)
+        #endregion
+
+        public override void Resize(double delta)
         {
-            System.Console.WriteLine("ctor Point({0})");
         }
 
-        public CheckPoint(CheckPoint source)
-            : this(source._x, source._y)
+        public override PictItem[] GetView()
         {
-            //copy point
+            return new PictItem[] { new PictItem() { X = _x, Y = _y, Symbol = '.' } };
         }
 
-    public override void Resize(float delta)
-    {
-        _x += (int)delta;
-        _y += (int)delta;
-    }
+        public override string ToString()
+        {
+            return string.Format("({0}, {1})", _x, _y);
+        }
 
-    public override PicturePoint[] GetView()
-    {
-        throw new NotImplementedException();
-    }
-
-    // public override PicturePoint[] GetView()
-    // {
-    //     return new PicturePoint() {new PicturePoint() {x= _x, y = _y, symbol = '.'}};
-    // }
+        public virtual void Rotate45()
+        {}
 }

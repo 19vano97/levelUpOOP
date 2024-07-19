@@ -1,12 +1,13 @@
 @startuml
 class Point {
-    + Point(x:int, y:int, pictureOwner:Picture)
-    + Point(pictureOwner:Picture)
+    + Point(x:int, y:int)
+    + Point()
     + CoordX : int <<get>> <<set>>
     + CoordY : int <<get>> <<set>>
     + UpdatePoint(x:int, y:int) : void
-    + <<override>> Move(x:int, y:int) : void
+    + <<virtual>> Move(x:int, y:int) : void
+    + <<virtual>> Resize(index:double) : void
+    + <<virtual>> Rotate45() : void
+    + <<virtual>> GetView() : Figure2d[]
 }
-Picture <|-- Point
-Point --> "PictureOwner" Picture
 @enduml

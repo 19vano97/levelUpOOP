@@ -1,8 +1,7 @@
 @startuml
 class UI {
-    + {static} DrawQuadrilateral(points:Point[], consoleClear:bool) : void
     + {static} DrawSquare(squareToDraw:Square, consoleClear:bool) : void
     + {static} DrawCircle(circleToDraw:Circle, consoleClear:bool) : void
-    + {static} DrawCircleInSquare(circleInSquareToDraw:CircleInSquare) : void
+    + {static} DrawPicture(pictureToDraw:Picture) : void
 }
 @enduml

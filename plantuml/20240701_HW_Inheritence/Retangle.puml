@@ -1,9 +1,11 @@
 @startuml
 class Rectangle {
-    + Rectangle(x:int, y:int, length:int, height:int, pictureFile:Picture)
+    + Rectangle(x:int, y:int, length:int, height:int)
     + Rectangle(newQuadrilateral:Quadrilateral, height:int)
     + heightOfRectangle : int <<get>> <<set>>
     + <<override>> Move(x:int, y:int) : void
+    + <<override>> Rotate45() : void
+    + <<override>> GetView() : Figure2d[]
 }
 Quadrilateral <|-- Rectangle
 @enduml

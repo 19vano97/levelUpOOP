@@ -1,7 +1,9 @@
 @startuml
 class CircleInSquare {
-    + CircleInSquare(x:int, y:int, length:int, pictureFile:Picture)
-    + <<override>> Resize(points:Point[], index:int) : void
+    + CircleInSquare(x:int, y:int, length:int)
+    + CircleInSquare(sqr:Square)
+    + <<override>> Resize(index:double) : void
+    + <<override>> GetView() : Figure2d[]
 }
 Square <|-- CircleInSquare
 CircleInSquare --> "UseCircle" Circle

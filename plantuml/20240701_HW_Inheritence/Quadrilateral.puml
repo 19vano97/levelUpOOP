@@ -1,9 +1,7 @@
 @startuml
-class Quadrilateral {
-    + Quadrilateral(x:int, y:int, length:int, pictureFile:Picture)
+abstract class Quadrilateral {
+    + Quadrilateral(x:int, y:int, length:int)
     + Length : int <<get>> <<set>>
-    + <<virtual>> Resize(points:Point[], index:int) : void
-    + Rotate45(points:Point[]) : void
 }
 Point <|-- Quadrilateral
 @enduml
