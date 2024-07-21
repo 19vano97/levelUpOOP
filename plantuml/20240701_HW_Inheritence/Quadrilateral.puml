@@ -2,6 +2,8 @@
 abstract class Quadrilateral {
     + Quadrilateral(x:int, y:int, length:int)
     + Length : int <<get>> <<set>>
+    + <<override>> Resize(index:double) : void
+    + <<override>> Rotate45() : void
 }
 Point <|-- Quadrilateral
 @enduml

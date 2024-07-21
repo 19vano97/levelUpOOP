@@ -5,9 +5,10 @@ class Point {
     + CoordX : int <<get>> <<set>>
     + CoordY : int <<get>> <<set>>
     + UpdatePoint(x:int, y:int) : void
-    + <<virtual>> Move(x:int, y:int) : void
-    + <<virtual>> Resize(index:double) : void
-    + <<virtual>> Rotate45() : void
-    + <<virtual>> GetView() : Figure2d[]
+    + <<override>> Move(x:int, y:int) : void
+    + <<override>> Rotate45() : void
+    + <<override>> Resize(index:double) : void
+    + <<override>> GetView() : PicItem[]
 }
+Figure2d <|-- Point
 @enduml

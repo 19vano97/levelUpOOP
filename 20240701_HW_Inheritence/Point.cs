@@ -3,21 +3,12 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace _20240701_HW_Inheritence;
 
-public class Point
+public class Point : Figure2d
 {
-    #region data
-
-        private int _x;
-        private int _y;
-
-    #endregion
-
     #region default ctors
 
-        public Point(int x, int y)
+        public Point(int x, int y) : base(x, y)
         {
-            _x = x;
-            _y = y;
         }
     
         public Point() : this (0, 0)
@@ -64,21 +55,31 @@ public class Point
         _y = y;
     }
 
-    public virtual void Move(int x, int y)
+    public override void Move(int x, int y)
     {
         _x += x;
         _y += y;
     }
 
-    public virtual void Resize(double index)
+    public override void Rotate45()
     {}
 
-    public virtual void Rotate45()
+    public override void Resize(double index)
     {}
 
-    public virtual Figure2d[] GetView()
+    public override double GetArea()
     {
-        return new Figure2d[] { new Figure2d(_x, _y, '*') };
+        return 0d;
+    }
+
+    public override int GetPerimeter()
+    {
+        return 0;
+    }
+
+    public override PicItem[] GetView()
+    {
+        return new PicItem[] { new PicItem(_x, _y, '*') };
     }
     
 }

@@ -11,7 +11,7 @@ class Picture {
     + <<override>> Move(x:int, y:int) : void
     + <<override>> Resize(index:double) : void
     + <<override>> Rotate45() : void
-    + <<override>> GetView() : Figure2d[]
+    + <<override>> GetView() : PicItem[]
 }
 Point <|-- Picture
 @enduml

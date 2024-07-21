@@ -3,9 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>_20240701_HW_Inheritence</RootNamespace>
+    <RootNamespace>_20240719_Lesson_interface</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-  </PropertyGroup> 
+  </PropertyGroup>
 
 </Project>

@@ -1,0 +1,6 @@
+@startuml
+class Container1 {
+    + size : int <<get>>
+}
+IConteiner <|-- Container1
+@enduml

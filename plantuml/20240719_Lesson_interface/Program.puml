@@ -1,0 +1,5 @@
+@startuml
+class Program {
+    + {static} Print(c:IConteiner) : void
+}
+@enduml

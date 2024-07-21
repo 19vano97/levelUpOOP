@@ -62,7 +62,7 @@ public class UI
 
         for (int i = 0; i < circleToDraw.GetView().Length; i++)
         {
-            Console.SetCursorPosition(circleToDraw.GetView()[i].X, circleToDraw.GetView()[i].Y);
+            Console.SetCursorPosition(circleToDraw.GetView()[i].x, circleToDraw.GetView()[i].y);
             // System.Console.Write("P{0} ({1}, {2})", i, circleToDraw.GetView()[i].X, circleToDraw.GetView()[i].Y);
             System.Console.Write('#');
         }
@@ -83,12 +83,19 @@ public class UI
 
         for (int i = 0; i < pictureToDraw.GetView().Length; i++)
         {
-            int x = pictureToDraw.GetView()[i].X;
-            int y = pictureToDraw.GetView()[i].Y;
+            int x = pictureToDraw.GetView()[i].x;
+            int y = pictureToDraw.GetView()[i].y;
 
             Console.SetCursorPosition(x, y);
 
-            System.Console.Write(pictureToDraw.GetView()[i].Symbol);
+            System.Console.Write(pictureToDraw.GetView()[i].symdol);
         }
+ 
+    }
+
+    public static void PrintIGeometrical(IGeometrical ig)
+    {
+        System.Console.WriteLine("Area: {0}", ig.GetArea());
+        System.Console.WriteLine("Perimeter: {0}", ig.GetPerimeter());
     }
 }

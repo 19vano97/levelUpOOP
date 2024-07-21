@@ -118,7 +118,7 @@ public class Picture : Point
         }
     }
 
-    public override Figure2d[] GetView()
+    public override PicItem[] GetView()
     {
         int indexLength = 0;
         
@@ -127,7 +127,7 @@ public class Picture : Point
             indexLength += _figures[i].GetView().Length;
         }
 
-        Figure2d[] figuresView = new Figure2d[indexLength];
+        PicItem[] figuresView = new PicItem[indexLength];
 
         int indexCount = 0;
 
@@ -135,7 +135,7 @@ public class Picture : Point
         {
             for (int k = 0; k < _figures[y].GetView().Length; k++)
             {
-                figuresView[indexCount] = new Figure2d(_figures[y].GetView()[k]);
+                figuresView[indexCount] = new PicItem(_figures[y].GetView()[k]);
                 indexCount++;
             }
         }

@@ -28,20 +28,27 @@ internal class Program
 
             pic1.Add(c1);
 
-            UI.DrawCircle(c1);
-            Console.ReadKey();
+            // UI.DrawCircle(c1);
+            // Console.ReadKey();
 
-            c1.Resize(2);
+            // //c1.Resize(2);
 
-            UI.DrawCircle(c1);
-            Console.ReadKey();
+            // UI.DrawCircle(c1);
+            // Console.ReadKey();
 
-            sqr.Resize(2); 
+            // //sqr.Resize(2); 
 
-            pic1.Add(new Rectangle(56, 15, 10, 5));           
+            pic1.Add(new Rectangle(56, 15, 10, 5)); 
+
+            UI.DrawPicture(pic1);
+            Console.ReadKey(); 
+
+            //pic1.Resize(2);         
 
             UI.DrawPicture(pic1);
             Console.ReadKey();
+
+            UI.PrintIGeometrical(c1);
 
         #endregion
     }

@@ -1,27 +1,26 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace _20240701_HW_Inheritence;
 
-public class Figure2d
+public abstract class Figure2d
 {
     #region variables
 
-        private int _x;
-        private int _y;
-        private char _symbol;
+        protected int _x;
+        protected int _y;
         
     #endregion
 
     #region default ctors
 
-        public Figure2d(int x, int y, char symbol)
+        public Figure2d(int x, int y)
         {
             _x = x;
             _y = y;
-            _symbol = symbol;
         }
 
-        public Figure2d(Figure2d fig) : this(fig._x, fig._y, fig._symbol)
+        public Figure2d(Figure2d fig) : this(fig._x, fig._y)
         {}
         
     #endregion
@@ -72,32 +71,15 @@ public class Figure2d
         }
     }
 
-    public char Symbol
-    {
-        get
-        {
-            if (_symbol == null)
-            {
-                return ' ';
-            }
+    public abstract void Move(int x, int y);
 
-            return _symbol;
-        }
-        set
-        {
-            if (_symbol == null)
-            {
-                return;
-            }
+    public abstract void Resize(double index);
 
-            _symbol = value;
-        }
-    }
+    public abstract void Rotate45();
 
-    public void ReplaceParams(Figure2d fig2)
-    {
-        _x = fig2._x;
-        _y = fig2._y;
-        _symbol = fig2._symbol;
-    }
+    public abstract PicItem[] GetView();
+
+    public abstract double GetArea();
+
+    public abstract int GetPerimeter();
 }

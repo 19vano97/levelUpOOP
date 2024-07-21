@@ -52,22 +52,22 @@ public class CircleInSquare : Square
         _circleInSquare.Resize(index);
     }
 
-    public override Figure2d[] GetView()
+    public override PicItem[] GetView()
     {
-        Figure2d[] figures = new Figure2d[Points.Length + _circleInSquare.GetView().Length];
+        PicItem[] figures = new PicItem[Points.Length + _circleInSquare.GetView().Length];
 
         for (int i = 0; i < Points.Length; i++)
         {
-            figures[i].X = Points[i].CoordX;
-            figures[i].Y = Points[i].CoordY;
-            figures[i].Symbol = _SYMBOL;
+            figures[i].x = Points[i].CoordX;
+            figures[i].y = Points[i].CoordY;
+            figures[i].symdol = _SYMBOL;
         }
 
         for (int i = Points.Length; i < figures.Length; i++)
         {
-            figures[i].X = _circleInSquare.CoordX;
-            figures[i].Y = _circleInSquare.CoordY;
-            figures[i].Symbol = _circleInSquare.Symbol;
+            figures[i].x = _circleInSquare.CoordX;
+            figures[i].y = _circleInSquare.CoordY;
+            figures[i].symdol = _circleInSquare.Symbol;
         }
 
         return figures;

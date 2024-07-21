@@ -2,7 +2,7 @@
 
 namespace _20240701_HW_Inheritence;
 
-public class Circle : Point
+public class Circle : Point, IGeometrical
 {
     protected char _SYMBOL = '*';
     private int _r;
@@ -51,14 +51,24 @@ public class Circle : Point
         _r *= (int)index;
     }
 
-    public override Figure2d[] GetView()
+    public override PicItem[] GetView()
     {
-        return new Figure2d[]{
-            new Figure2d(CoordX, CoordY, _SYMBOL),
-            new Figure2d(CoordX - _r, CoordY, _SYMBOL),  //left
-            new Figure2d(CoordX + _r, CoordY, _SYMBOL),  //right
-            new Figure2d(CoordX, CoordY + _r, _SYMBOL),  //top
-            new Figure2d(CoordX, CoordY - _r, _SYMBOL)   //bottom
+        return new PicItem[]{
+            new PicItem(CoordX, CoordY, _SYMBOL),
+            new PicItem(CoordX - _r, CoordY, _SYMBOL),  //left
+            new PicItem(CoordX + _r, CoordY, _SYMBOL),  //right
+            new PicItem(CoordX, CoordY + _r, _SYMBOL),  //top
+            new PicItem(CoordX, CoordY - _r, _SYMBOL)   //bottom
         };
+    }
+
+    public override double GetArea()
+    {
+        return  Math.Pow(_r, 2) * Math.PI;
+    }
+
+    public override int GetPerimeter()
+    {
+        return (int)(2 * _r * Math.PI);
     }
 }

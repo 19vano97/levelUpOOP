@@ -2,10 +2,10 @@
 
 namespace _20240701_HW_Inheritence;
 
-public class Square : Quadrilateral
+public class Square : Quadrilateral, IGeometrical
 {
     protected const char _SYMBOL = '#';
-    protected Point[] _points;
+    // protected Point[] _points;
 
     #region default ctors
 
@@ -50,34 +50,25 @@ public class Square : Quadrilateral
         _points[3] = new Point(x + length, y + length);   //p4
     }
 
-    public override void Resize(double index)
+    public override PicItem[] GetView()
     {
-        _points[0].UpdatePoint(_points[0].CoordX / (int)index, _points[0].CoordY / (int)index);
-        _points[1].UpdatePoint(_points[1].CoordX * (int)index, _points[1].CoordY / (int)index);
-        _points[2].UpdatePoint(_points[2].CoordX / (int)index, _points[2].CoordY * (int)index);
-        _points[3].UpdatePoint(_points[3].CoordX * (int)index, _points[3].CoordY * (int)index);
-    }
-
-    public override void Rotate45()
-    {
-        for (int i = 0; i < _points.Length; i++)
-        {
-            int newX = (int)((double)(Math.Sqrt(2) / 2) * (_points[i].CoordX - _points[i].CoordY));
-            int newY = (int)((double)(Math.Sqrt(2) / 2) * (_points[i].CoordX + _points[i].CoordY));
-
-            _points[i].UpdatePoint(newX, newY);
-        }
-    }
-
-    public override Figure2d[] GetView()
-    {
-        Figure2d[] figure2Ds = new Figure2d[_points.Length];
+        PicItem[] figure2Ds = new PicItem[_points.Length];
 
         for (int i = 0; i < figure2Ds.Length; i++)
         {
-            figure2Ds[i] = new Figure2d(_points[i].CoordX, _points[i].CoordY, _SYMBOL);
+            figure2Ds[i] = new PicItem(_points[i].CoordX, _points[i].CoordY, _SYMBOL);
         }
 
         return figure2Ds;
+    }
+
+    public override double GetArea()
+    {
+        return Math.Sqrt(_length);
+    }
+
+    public override int GetPerimeter()
+    {
+        return _length * 4;
     }
 }

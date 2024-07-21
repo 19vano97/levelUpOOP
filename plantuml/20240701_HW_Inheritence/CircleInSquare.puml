@@ -3,7 +3,7 @@ class CircleInSquare {
     + CircleInSquare(x:int, y:int, length:int)
     + CircleInSquare(sqr:Square)
     + <<override>> Resize(index:double) : void
-    + <<override>> GetView() : Figure2d[]
+    + <<override>> GetView() : PicItem[]
 }
 Square <|-- CircleInSquare
 CircleInSquare --> "UseCircle" Circle

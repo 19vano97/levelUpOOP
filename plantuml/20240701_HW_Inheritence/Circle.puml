@@ -5,7 +5,7 @@ class Circle {
     + Symbol : char <<get>>
     + Update(x:int, y:int, r:int) : void
     + <<override>> Resize(index:double) : void
-    + <<override>> GetView() : Figure2d[]
+    + <<override>> GetView() : PicItem[]
 }
 Point <|-- Circle
 @enduml

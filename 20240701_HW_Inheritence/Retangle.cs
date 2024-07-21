@@ -1,11 +1,11 @@
 ﻿namespace _20240701_HW_Inheritence;
 
-public class Rectangle : Quadrilateral
+public class Rectangle : Quadrilateral, IGeometrical
 {
     #region data
         protected const char _SYMBOL = '|';
         protected int _height;
-        protected Point[] _points;
+        // protected Point[] _points;
 
     #endregion
 
@@ -75,27 +75,26 @@ public class Rectangle : Quadrilateral
         _points[3] = new Point(_points[1].CoordX, y + height);   //p4
     }
 
-    public override void Rotate45()
+    public override PicItem[] GetView()
     {
-        for (int i = 0; i < _points.Length; i++)
-        {
-            int newX = (int)((double)(Math.Sqrt(2) / 2) * (_points[i].CoordX - _points[i].CoordY));
-            int newY = (int)((double)(Math.Sqrt(2) / 2) * (_points[i].CoordX + _points[i].CoordY));
-
-            _points[i].UpdatePoint(newX, newY);
-        }
-    }
-
-    public override Figure2d[] GetView()
-    {
-        Figure2d[] figure2Ds = new Figure2d[_points.Length];
+        PicItem[] figure2Ds = new PicItem[_points.Length];
 
         for (int i = 0; i < figure2Ds.Length; i++)
         {
-            figure2Ds[i] = new Figure2d(_points[i].CoordX, _points[i].CoordY, _SYMBOL);
+            figure2Ds[i] = new PicItem(_points[i].CoordX, _points[i].CoordY, _SYMBOL);
         }
 
         return figure2Ds;
+    }
+
+    public override double GetArea()
+    {
+        return _length * _height;
+    }
+
+    public override int GetPerimeter()
+    {
+        return 2 * (_length + _height);
     }
 
 }

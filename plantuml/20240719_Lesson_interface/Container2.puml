@@ -1,0 +1,7 @@
+@startuml
+struct Container2 {
+    + Container2(items:int[])
+    + size : int <<get>>
+}
+IConteiner <|-- Container2
+@enduml
