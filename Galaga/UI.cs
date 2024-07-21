@@ -25,9 +25,9 @@ public class UI
         Console.SetCursorPosition(gamezone.GetLength(0) / 2, gamezone.GetLength(1) - 1);
     }
 
-    public static Position GetDefaultPosition(char[,] gamezone)
+    public static PositionOf GetDefaultPosition(char[,] gamezone)
     {
-        Position defaultPosition = new Position ()
+        PositionOf defaultPosition = new PositionOf ()
         {
             x = gamezone.GetLength(0) / 2, 
             y = gamezone.GetLength(1) - 1

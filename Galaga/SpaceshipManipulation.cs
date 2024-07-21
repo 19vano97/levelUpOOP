@@ -2,7 +2,7 @@
 
 public class SpaceshipManipulation
 {
-    public static Spaceship[] InitSpaceshipArray(char[,] gamezone, GameLevelStructure level)
+    public static Spaceship[] InitSpaceshipArray(char[,] gamezone, GameLevel level)
     {
         Spaceship[] spaceships = new Spaceship[1];
         spaceships[0] = InitHero(gamezone, level);
@@ -44,7 +44,7 @@ public class SpaceshipManipulation
         return allSpaceships;
     }
     
-    public static Spaceship InitHero(char[,] gamezone, GameLevelStructure level)
+    public static Spaceship InitHero(char[,] gamezone, GameLevel level)
     {
         Spaceship hero = new Spaceship()
         {
@@ -59,9 +59,9 @@ public class SpaceshipManipulation
         return hero;
     }
 
-    public static BlusterProperties InitBlusterProperties(int damage = 100, char symbolOfShot = '|', ulong speed = 3)
+    public static BlusterProperty InitBlusterProperties(int damage = 100, char symbolOfShot = '|', ulong speed = 3)
     {
-        BlusterProperties bluster = new BlusterProperties()
+        BlusterProperty bluster = new BlusterProperty()
         {
             damage = damage,
             symbolOfShot = symbolOfShot,
@@ -71,7 +71,7 @@ public class SpaceshipManipulation
         return bluster;
     }
 
-    public static Spaceship InitEnemy(char[,] gamezone, GameLevelStructure level)
+    public static Spaceship InitEnemy(char[,] gamezone, GameLevel level)
     {
         Spaceship enemy = new Spaceship()
         {
@@ -100,12 +100,12 @@ public class SpaceshipManipulation
         return hero;
     }
 
-    public static Position LocateEnemy(char[,] gamezone)
+    public static PositionOf LocateEnemy(char[,] gamezone)
     {
         int xLocateEnemy = BL.GetRandomInt(0, gamezone.GetLength(0));
         //int xLocateEnemy = gamezone.GetLength(0) / 2;
 
-        Position coordinates = new Position()
+        PositionOf coordinates = new PositionOf()
         {
             x = xLocateEnemy,
             y = 2
@@ -122,7 +122,7 @@ public class SpaceshipManipulation
         Console.SetCursorPosition(spaceship.spaceshipCoodinates.x, spaceship.spaceshipCoodinates.y);
         System.Console.Write(' ');
 
-        Position oldPosition = new Position()
+        PositionOf oldPosition = new PositionOf()
         {
             x = spaceship.spaceshipCoodinates.x,
             y = spaceship.spaceshipCoodinates.y

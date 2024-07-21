@@ -1,9 +1,9 @@
 ﻿namespace Galaga;
 
-public struct BlusterProperties
+public struct BlusterProperty
 {
     public int damage;
     public char symbolOfShot;
-    public Position coordinates;
+    public PositionOf coordinates;
     public ulong bluserSpeed;
 }

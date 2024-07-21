@@ -2,11 +2,11 @@
 
 public class LevelDesign
 {
-    public static GameLevelStructure GetLevelOfDifficulty(LevelEnums levelName = LevelEnums.Medium)
+    public static GameLevel GetLevelOfDifficulty(LevelEnums levelName = LevelEnums.Medium)
     {
         if (levelName == LevelEnums.Low)
         {
-            GameLevelStructure level = new GameLevelStructure()
+            GameLevel level = new GameLevel()
             {
                 name = levelName,
                 heroHealthpoints = 150,
@@ -23,7 +23,7 @@ public class LevelDesign
         }
         else if (levelName == LevelEnums.Hard)
         {
-            GameLevelStructure level = new GameLevelStructure()
+            GameLevel level = new GameLevel()
             {
                 name = levelName,
                 heroHealthpoints = 50,
@@ -40,7 +40,7 @@ public class LevelDesign
         }
         else
         {
-            GameLevelStructure level = new GameLevelStructure()
+            GameLevel level = new GameLevel()
             {
                 name = levelName,
                 heroHealthpoints = 100,

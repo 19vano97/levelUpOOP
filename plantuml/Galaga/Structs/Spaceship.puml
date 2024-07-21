@@ -5,6 +5,6 @@ struct Spaceship {
     + healthPoint : int
     + spaceshipSpeed : ulong
 }
-Spaceship --> "bluster" BlusterProperties
-Spaceship --> "spaceshipCoodinates" Position
+Spaceship --> "bluster" BlusterProperty
+Spaceship --> "spaceshipCoodinates" PositionOf
 @enduml

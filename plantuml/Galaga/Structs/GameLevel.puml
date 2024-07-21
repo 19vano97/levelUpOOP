@@ -1,5 +1,5 @@
 @startuml
-struct GameLevelStruct {
+struct GameLevel {
     + heroHealthpoints : int
     + enemyHealthpoints : int
     + heroBlusterDamage : int
@@ -9,5 +9,5 @@ struct GameLevelStruct {
     + enemyShotFrequensy : ulong
     + maxEnemiesOnScreen : int
 }
-GameLevelStruct --> "name" LevelEnums
+GameLevel --> "name" LevelEnums
 @enduml

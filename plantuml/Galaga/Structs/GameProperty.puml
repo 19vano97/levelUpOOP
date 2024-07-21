@@ -4,5 +4,5 @@ struct GameProperty {
     + isGameOver : bool
     + score : int
 }
-GameProperty --> "level" GameLevelStructure
+GameProperty --> "level" GameLevel
 @enduml

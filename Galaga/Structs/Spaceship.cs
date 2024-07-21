@@ -7,7 +7,7 @@ public struct Spaceship
     public int id;
     public char symbol;
     public int healthPoint;
-    public BlusterProperties bluster;
-    public Position spaceshipCoodinates;
+    public BlusterProperty bluster;
+    public PositionOf spaceshipCoodinates;
     public ulong spaceshipSpeed;
 }

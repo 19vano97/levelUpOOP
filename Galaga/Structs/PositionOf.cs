@@ -1,6 +1,6 @@
 ﻿namespace Galaga;
 
-public struct Position
+public struct PositionOf
 {
     public int x;
     public int y;

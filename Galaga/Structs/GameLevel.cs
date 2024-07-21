@@ -1,6 +1,6 @@
 ﻿namespace Galaga;
 
-public struct GameLevelStructure
+public struct GameLevel
 {
     public LevelEnums name;
     public int heroHealthpoints;

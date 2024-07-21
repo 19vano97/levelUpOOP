@@ -3,6 +3,7 @@ struct PicItem {
     + x : int
     + y : int
     + symdol : char
-    + PicItem(x:int, y:int, v:char)
+    + PicItem(x:int, y:int, symdol:char)
+    + PicItem(pic:PicItem)
 }
 @enduml

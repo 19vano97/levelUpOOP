@@ -1,8 +1,8 @@
 @startuml
-struct BlusterProperties {
+struct BlusterProperty {
     + damage : int
     + symbolOfShot : char
     + bluserSpeed : ulong
 }
-BlusterProperties --> "coordinates" PositionOf
+BlusterProperty --> "coordinates" PositionOf
 @enduml

@@ -6,6 +6,6 @@ public struct GameProperty
     public Spaceship[] allSpaceships;
     public ulong gameTime;
     public bool isGameOver;
-    public GameLevelStructure level;
+    public GameLevel level;
     public int score;
 }

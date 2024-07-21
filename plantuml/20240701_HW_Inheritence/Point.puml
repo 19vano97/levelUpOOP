@@ -8,6 +8,8 @@ class Point {
     + <<override>> Move(x:int, y:int) : void
     + <<override>> Rotate45() : void
     + <<override>> Resize(index:double) : void
+    + <<override>> GetArea() : double
+    + <<override>> GetPerimeter() : int
     + <<override>> GetView() : PicItem[]
 }
 Figure2d <|-- Point

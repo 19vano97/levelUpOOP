@@ -9,7 +9,7 @@ public class AttackBlusterUI
         int x = attacker.bluster.coordinates.x;
         int y = attacker.bluster.coordinates.y;
 
-        Position oldShotPosition = new Position()
+        PositionOf oldShotPosition = new PositionOf()
         {
             x = x,
             y = y

@@ -1,8 +1,8 @@
 @startuml
 class AttackBlusterBL {
     + {static} DamageSpaceship(currentGameProperties:GameProperty, attacker:Spaceship, victim:Spaceship) : void
-    + {static} IsTargetUnderBlustShot(blusterShotPosition:Position, allSpaceships:Spaceship[]) : bool
-    + {static} GetVictimOnShotLine(blusterShotPosition:Position, allSpaceships:Spaceship[], enemyShot:bool) : Spaceship
+    + {static} IsTargetUnderBlustShot(blusterShotPosition:PositionOf, allSpaceships:Spaceship[]) : bool
+    + {static} GetVictimOnShotLine(blusterShotPosition:PositionOf, allSpaceships:Spaceship[], enemyShot:bool) : Spaceship
     + {static} EnemyAutoShooting(currentGameProperties:GameProperty, enemy:Spaceship) : void
 }
 @enduml

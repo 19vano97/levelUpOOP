@@ -15,7 +15,7 @@ public class GamezoneManipulations
     }
 
     public static void UpdatePositionOnGamezone(ref char[,] gamezone, Spaceship spaceship, 
-                                                   Position oldPosition, bool attack = false)
+                                                   PositionOf oldPosition, bool attack = false)
     {
         if (attack == false)
         {
@@ -37,7 +37,7 @@ public class GamezoneManipulations
         DeletePosition(ref gamezone, oldPosition);
     }
 
-    public static void DeletePosition(ref char[,] gamezone, Position oldPosition)
+    public static void DeletePosition(ref char[,] gamezone, PositionOf oldPosition)
     {
         if (oldPosition.x < 0 || oldPosition.x > gamezone.GetLength(0) - 1 
                 || oldPosition.y < 0 || oldPosition.y > gamezone.GetLength(1) - 1)

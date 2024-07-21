@@ -44,7 +44,7 @@ public class AttackBlusterBL
         }
     }
 
-    public static bool IsTargetUnderBlustShot(Position blusterShotPosition, ref Spaceship[] allSpaceships)
+    public static bool IsTargetUnderBlustShot(PositionOf blusterShotPosition, ref Spaceship[] allSpaceships)
     {
         for (int i = 0; i < allSpaceships.Length; i++)
         {
@@ -58,7 +58,7 @@ public class AttackBlusterBL
         return false;
     }
 
-    public static Spaceship GetVictimOnShotLine(Position blusterShotPosition, 
+    public static Spaceship GetVictimOnShotLine(PositionOf blusterShotPosition, 
                                                 ref Spaceship[] allSpaceships, 
                                                 bool enemyShot = false)
     {       

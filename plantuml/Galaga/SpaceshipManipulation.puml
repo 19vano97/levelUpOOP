@@ -1,14 +1,14 @@
 @startuml
 class SpaceshipManipulation {
-    + {static} InitSpaceshipArray(gamezone:char[,], level:GameLevelStructure) : Spaceship[]
+    + {static} InitSpaceshipArray(gamezone:char[,], level:GameLevel) : Spaceship[]
     + {static} AddSpaceshipToArray(allSpaceships:Spaceship[], spaceship:Spaceship) : Spaceship[]
     + {static} UpdateSpaceshipArray(allSpaceships:Spaceship[], spaceship:Spaceship) : Spaceship[]
     + {static} DeleteSpaceshipFromArray(allSpaceships:Spaceship[], spaceshipToDelete:Spaceship) : Spaceship[]
-    + {static} InitHero(gamezone:char[,], level:GameLevelStructure) : Spaceship
-    + {static} InitBlusterProperties(damage:int, symbolOfShot:char, speed:ulong) : BlusterProperties
-    + {static} InitEnemy(gamezone:char[,], level:GameLevelStructure) : Spaceship
+    + {static} InitHero(gamezone:char[,], level:GameLevel) : Spaceship
+    + {static} InitBlusterProperties(damage:int, symbolOfShot:char, speed:ulong) : BlusterProperty
+    + {static} InitEnemy(gamezone:char[,], level:GameLevel) : Spaceship
     + {static} FindHeroByCoordinates(allSpaceships:Spaceship[]) : Spaceship
-    + {static} LocateEnemy(gamezone:char[,]) : Position
+    + {static} LocateEnemy(gamezone:char[,]) : PositionOf
     + {static} MoveSpaceship(currentGameProperties:GameProperty, spaceship:Spaceship, x:int, y:int, direction:Movements) : void
 }
 @enduml

@@ -1,0 +1,6 @@
+@startuml
+struct PositionOf {
+    + x : int
+    + y : int
+}
+@enduml

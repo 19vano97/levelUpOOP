@@ -1,7 +1,7 @@
 @startuml
 class GamezoneManipulations {
     + {static} InitGamezone() : char[,]
-    + {static} UpdatePositionOnGamezone(gamezone:char[,], spaceship:Spaceship, oldPosition:Position, attack:bool) : void
-    + {static} DeletePosition(gamezone:char[,], oldPosition:Position) : void
+    + {static} UpdatePositionOnGamezone(gamezone:char[,], spaceship:Spaceship, oldPosition:PositionOf, attack:bool) : void
+    + {static} DeletePosition(gamezone:char[,], oldPosition:PositionOf) : void
 }
 @enduml

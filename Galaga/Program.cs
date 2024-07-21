@@ -8,7 +8,7 @@ internal class Program
     {
         Console.Clear();
 
-        GameLevelStructure level = LevelDesign.GetLevelOfDifficulty(LevelDesign.ChooseLevelFromAList());
+        GameLevel level = LevelDesign.GetLevelOfDifficulty(LevelDesign.ChooseLevelFromAList());
 
         Console.Clear();
 
