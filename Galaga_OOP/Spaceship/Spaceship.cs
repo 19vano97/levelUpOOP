@@ -15,9 +15,9 @@ public class Spaceship : PositionOfSubject
 
     #region default ctors
 
-        public Spaceship(int x, int y, PlayersKindsEnum playerKind)
+        public Spaceship(int x, int y, PlayersKindsEnum playerKind) : base(x, y)
         {
-
+            _id = Guid.NewGuid();
         }
 
 
