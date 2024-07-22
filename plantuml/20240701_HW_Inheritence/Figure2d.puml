@@ -4,8 +4,11 @@ abstract class Figure2d {
     + Figure2d(fig:Figure2d)
     + X : int <<get>> <<set>>
     + Y : int <<get>> <<set>>
+    + {abstract} Move(x:int, y:int) : void
     + {abstract} Resize(index:double) : void
     + {abstract} Rotate45() : void
     + {abstract} GetView() : PicItem[]
+    + {abstract} GetArea() : double
+    + {abstract} GetPerimeter() : int
 }
 @enduml

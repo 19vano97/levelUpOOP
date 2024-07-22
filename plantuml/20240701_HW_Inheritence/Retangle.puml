@@ -5,6 +5,9 @@ class Rectangle {
     + heightOfRectangle : int <<get>> <<set>>
     + <<override>> Move(x:int, y:int) : void
     + <<override>> GetView() : PicItem[]
+    + <<override>> GetArea() : double
+    + <<override>> GetPerimeter() : int
 }
 Quadrilateral <|-- Rectangle
+IGeometrical <|-- Rectangle
 @enduml
