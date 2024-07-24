@@ -79,7 +79,7 @@ public abstract class Figure2d
 
     public abstract PicItem[] GetView();
 
-    public abstract double GetArea();
+    // public abstract double GetArea();
 
-    public abstract int GetPerimeter();
+    // public abstract int GetPerimeter();
 }

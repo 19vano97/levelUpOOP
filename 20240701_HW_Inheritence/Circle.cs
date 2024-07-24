@@ -62,12 +62,12 @@ public class Circle : Point, IGeometrical
         };
     }
 
-    public override double GetArea()
+    public double GetArea()
     {
         return  Math.Pow(_r, 2) * Math.PI;
     }
 
-    public override int GetPerimeter()
+    public int GetPerimeter()
     {
         return (int)(2 * _r * Math.PI);
     }

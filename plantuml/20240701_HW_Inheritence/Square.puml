@@ -2,8 +2,6 @@
 class Square {
     + Square(x:int, y:int, length:int)
     + Square(newQuadrilateral:Quadrilateral)
-    + <<override>> Move(x:int, y:int) : void
-    + <<override>> GetView() : PicItem[]
     + <<override>> GetArea() : double
     + <<override>> GetPerimeter() : int
 }

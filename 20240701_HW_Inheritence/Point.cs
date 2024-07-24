@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace _20240701_HW_Inheritence;
@@ -55,6 +56,12 @@ public class Point : Figure2d
         _y = y;
     }
 
+    public void UpdatePoint(Point p)
+    {
+        _x = p._x;
+        _y = p._y;
+    }
+
     public override void Move(int x, int y)
     {
         _x += x;
@@ -67,15 +74,15 @@ public class Point : Figure2d
     public override void Resize(double index)
     {}
 
-    public override double GetArea()
-    {
-        return 0d;
-    }
+    // public override double GetArea()
+    // {
+    //     return 0d;
+    // }
 
-    public override int GetPerimeter()
-    {
-        return 0;
-    }
+    // public override int GetPerimeter()
+    // {
+    //     return 0;
+    // }
 
     public override PicItem[] GetView()
     {

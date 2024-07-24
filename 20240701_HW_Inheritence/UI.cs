@@ -60,7 +60,9 @@ public class UI
         //     }
         // }
 
-        for (int i = 0; i < circleToDraw.GetView().Length; i++)
+        int size = circleToDraw.GetView().Length;
+
+        for (int i = 0; i < size; i++)
         {
             Console.SetCursorPosition(circleToDraw.GetView()[i].x, circleToDraw.GetView()[i].y);
             // System.Console.Write("P{0} ({1}, {2})", i, circleToDraw.GetView()[i].X, circleToDraw.GetView()[i].Y);
@@ -81,7 +83,9 @@ public class UI
     {
         Console.Clear();
 
-        for (int i = 0; i < pictureToDraw.GetView().Length; i++)
+        int size = pictureToDraw.GetView().Length;
+
+        for (int i = 0; i < size; i++)
         {
             int x = pictureToDraw.GetView()[i].x;
             int y = pictureToDraw.GetView()[i].y;

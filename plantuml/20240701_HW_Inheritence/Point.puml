@@ -5,6 +5,7 @@ class Point {
     + CoordX : int <<get>> <<set>>
     + CoordY : int <<get>> <<set>>
     + UpdatePoint(x:int, y:int) : void
+    + UpdatePoint(p:Point) : void
     + <<override>> Move(x:int, y:int) : void
     + <<override>> Rotate45() : void
     + <<override>> Resize(index:double) : void

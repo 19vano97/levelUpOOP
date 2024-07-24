@@ -4,7 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace _20240701_HW_Inheritence;
 
-public class Picture : Point
+public class Picture : Point, IGeometrical
 {
     #region variables
 
@@ -131,7 +131,9 @@ public class Picture : Point
 
         int indexCount = 0;
 
-        for (int y = 0; y < _figures.Length; y++)
+        int size = _figures.Length;
+
+        for (int y = 0; y < size; y++)
         {
             for (int k = 0; k < _figures[y].GetView().Length; k++)
             {
@@ -141,6 +143,138 @@ public class Picture : Point
         }
 
         return figuresView;
+    }
+
+    // public override double GetArea()
+    // {
+    //     int[] sides = FindSidesOfQuadraliteral();
+
+    //     int p = GetPerimeter() / 2;
+
+    //     double d = 1d;
+
+    //     for (int i = 0; i < sides.Length; i++)
+    //     {
+    //         d *= p - sides[i];
+    //     }
+      
+    //     return Math.Sqrt(d);
+    // }
+
+    // public override int GetPerimeter()
+    // {
+    //     int[] sides = FindSidesOfQuadraliteral();
+
+    //     int p = 0;
+
+    //     for (int i = 0; i < sides.Length; i++)
+    //     {
+    //         p += sides[i];
+    //     }
+
+    //     return p;
+    // }
+
+    // private int[] FindSidesOfQuadraliteral()
+    // {
+    //     Point[] points = CalculateMaxPoints();
+
+    //     int[] sides = new int[4];
+
+    //     for (int i = 0; i < points.Length; i++)
+    //     {
+    //         if (i < points.Length - 1)
+    //         {
+    //             sides[i] = (int)Math.Sqrt(Math.Pow(points[i + 1].CoordX - points[i].CoordX, 2) + Math.Pow(points[i + 1].CoordY - points[i].CoordY, 2));
+    //         }
+    //         else
+    //         {
+    //             sides[i] = (int)Math.Sqrt(Math.Pow(points[i].CoordX - points[0].CoordX, 2) + Math.Pow(points[i].CoordY - points[0].CoordY, 2));
+    //         }
+    //     }
+
+    //     return sides;
+    // }
+
+    // private Point[] CalculateMaxPoints()
+    // {
+    //     Point[] points = new Point[4];
+
+    //     for (int i = 0; i < points.Length; i++)
+    //     {
+    //         points[i] = new Point(155, 22);
+    //         // points[i] = new Point(Console.WindowWidth, Console.WindowHeight);
+    //     }
+
+    //     for (int i = 0; i < points.Length; i++)
+    //     {
+    //         for (int k = 0; k < _figures.Length; k++)
+    //         {
+    //             if (_figures[k] is Quadrilateral)
+    //             {
+    //                 for (int m = 0; m < _figures[k].Points.Length; m++)
+    //                 {
+    //                     if (points[i].CoordX > _figures[k].Points[m].CoordX && points[i].CoordY < _figures[k].Points[m].CoordY)   //point[0] TOP Left
+    //                     {
+    //                         points[i].UpdatePoint(_figures[k]);
+    //                         break;
+    //                     }
+                        
+    //                     if (points[i].CoordX < _figures[k].CoordX && points[i].CoordY < _figures[k].CoordY)   //point[1] TOP right
+    //                     {
+    //                         points[i].UpdatePoint(_figures[k]);
+    //                         break;
+    //                     }
+        
+    //                     if (points[i].CoordX > _figures[k].CoordX && points[i].CoordY > _figures[k].CoordY)   //point[2] bottom left
+    //                     {
+    //                         points[i].UpdatePoint(_figures[k]);
+    //                         break;
+    //                     }
+        
+    //                     if (points[i].CoordX < _figures[k].CoordX && points[i].CoordY > _figures[k].CoordY)   //point[3] bottom right
+    //                     {
+    //                         points[i].UpdatePoint(_figures[k]);
+    //                         break;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     return points;
+    // }
+
+    public double GetArea()
+    {
+        double area = 0d;
+
+        for (int i = 0; i < _figures.Length; i++)
+        {
+            if (_figures[i] is IGeometrical)
+            {
+                area += ((IGeometrical)_figures[i]).GetArea();
+            }
+        }
+
+        return area;
+    }
+
+    public int GetPerimeter()
+    {
+        int p = 0;
+
+        for (int i = 0; i < _figures.Length; i++)
+        {
+            IGeometrical ig = _figures[i] as IGeometrical;
+
+            if (ig != null)
+            {
+                p += ig.GetPerimeter();
+            }
+        }
+
+        return p;
     }
 
 

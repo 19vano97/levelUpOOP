@@ -3,10 +3,9 @@ class Rectangle {
     + Rectangle(x:int, y:int, length:int, height:int)
     + Rectangle(newQuadrilateral:Quadrilateral, height:int)
     + heightOfRectangle : int <<get>> <<set>>
-    + <<override>> Move(x:int, y:int) : void
-    + <<override>> GetView() : PicItem[]
     + <<override>> GetArea() : double
     + <<override>> GetPerimeter() : int
+    + <<override>> Resize(index:double) : void
 }
 Quadrilateral <|-- Rectangle
 IGeometrical <|-- Rectangle

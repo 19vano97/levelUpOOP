@@ -14,4 +14,5 @@ class Picture {
     + <<override>> GetView() : PicItem[]
 }
 Point <|-- Picture
+IGeometrical <|-- Picture
 @enduml
