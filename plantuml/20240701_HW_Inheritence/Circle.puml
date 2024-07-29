@@ -6,9 +6,11 @@ class Circle {
     + Update(x:int, y:int, r:int) : void
     + <<override>> Resize(index:double) : void
     + <<override>> GetView() : PicItem[]
-    + <<override>> GetArea() : double
-    + <<override>> GetPerimeter() : int
+    + GetArea() : double
+    + GetPerimeter() : int
+    + CompareTo(obj:object?) : int
 }
 Point <|-- Circle
 IGeometrical <|-- Circle
+IComparable <|-- Circle
 @enduml

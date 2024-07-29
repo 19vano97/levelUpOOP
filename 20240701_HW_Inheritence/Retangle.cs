@@ -1,6 +1,6 @@
 ﻿namespace _20240701_HW_Inheritence;
 
-public class Rectangle : Quadrilateral, IGeometrical
+public class Rectangle : Quadrilateral, IGeometrical, IComparable
 {
     #region variables
 
@@ -76,4 +76,25 @@ public class Rectangle : Quadrilateral, IGeometrical
         _points[3].UpdatePoint(_points[3].CoordX * (int)index, _points[3].CoordY * (int)index);
     }
 
+    public int CompareTo(object? obj)
+    {
+        Rectangle r2 = obj as Rectangle;
+
+        if (r2 == null)
+        {
+            return 1;
+        }
+
+        if (GetArea() > r2.GetArea())
+        {
+            return 1;
+        }
+
+        if (GetArea() < r2.GetArea())
+        {
+            return -1;
+        }
+
+        return 0;
+    }
 }

@@ -1,0 +1,12 @@
+@startuml
+class Person {
+    + FirstName : string <<get>> <<set>>
+    + LastName : string <<get>> <<set>>
+    + INN : int <<get>> <<set>>
+    + Clone() : object
+    + CompareTo(obj:object?) : int
+    + <<override>> ToString() : string
+}
+ICloneable <|-- Person
+IComparable <|-- Person
+@enduml

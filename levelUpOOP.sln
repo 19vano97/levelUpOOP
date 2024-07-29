@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240722_Lesson_BoxingUnbox
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240723_HW_Stack", "20240723_HW_Stack\20240723_HW_Stack.csproj", "{E91BF8D8-20EF-460C-8813-6C91D916CD2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240726_Lesson_SdrInterfaces", "20240726_Lesson_SdrInterfaces\20240726_Lesson_SdrInterfaces.csproj", "{7ADDA706-F103-4E81-AE9F-AD6C857D3EDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{E91BF8D8-20EF-460C-8813-6C91D916CD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E91BF8D8-20EF-460C-8813-6C91D916CD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E91BF8D8-20EF-460C-8813-6C91D916CD2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADDA706-F103-4E81-AE9F-AD6C857D3EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADDA706-F103-4E81-AE9F-AD6C857D3EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADDA706-F103-4E81-AE9F-AD6C857D3EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADDA706-F103-4E81-AE9F-AD6C857D3EDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

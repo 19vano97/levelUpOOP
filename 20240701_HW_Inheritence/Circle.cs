@@ -2,7 +2,7 @@
 
 namespace _20240701_HW_Inheritence;
 
-public class Circle : Point, IGeometrical
+public class Circle : Point, IGeometrical, IComparable
 {
     protected char _SYMBOL = '*';
     private int _r;
@@ -70,5 +70,27 @@ public class Circle : Point, IGeometrical
     public int GetPerimeter()
     {
         return (int)(2 * _r * Math.PI);
+    }
+
+    public int CompareTo(object? obj)
+    {
+        Circle c2 = obj as Circle;
+
+        if (c2 == null)
+        {
+            return 1;
+        }
+
+        if (GetArea() > c2.GetArea())
+        {
+            return 1;
+        }
+
+        if (GetArea() < c2.GetArea())
+        {
+            return -1;
+        }
+
+        return 0;
     }
 }

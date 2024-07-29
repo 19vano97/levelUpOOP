@@ -1,0 +1,11 @@
+@startuml
+class Stack {
+    + Stack(items:object[])
+    + Size : int <<get>>
+    + Push(item:object) : void
+    + Peek() : object
+    + Pop() : void
+    + IsFull() : bool
+    + IsEmpty() : bool
+}
+@enduml

@@ -2,7 +2,7 @@
 
 namespace _20240522_HW20;
 
-public struct Student
+public class Student : IComparable
 {
     private string _firstName;
     private string _lastName;
@@ -55,6 +55,32 @@ public struct Student
     {
         get { return _avgMark; }
         set { _avgMark = value; }
+    }
+
+    public int CompareTo(object? obj)
+    {
+        Student? s2 = obj as Student;
+
+        int compLN = string.Compare(_lastName, s2._lastName);
+
+        if (compLN == 0)
+        {
+            int compFN = string.Compare(_firstName, s2._firstName);
+
+            if (compFN == 0)
+            {
+                if (_avgMark == s2._avgMark)
+                {
+                    return 0;
+                }
+
+                return (int)(_avgMark - s2._avgMark);
+            }
+
+            return compFN;
+        }
+
+        return compLN;
     }
 
     public double GetAvgMarkOfTheStudent()

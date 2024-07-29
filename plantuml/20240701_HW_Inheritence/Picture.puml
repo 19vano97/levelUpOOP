@@ -7,11 +7,14 @@ class Picture {
     + Picture(fileName:string, figures:Point[])
     + FileName : string <<get>> <<set>>
     + Add(figureToAdd:Point) : void
+    + Add(figureToAdd:Point[]) : void
     + Delete(figureToDelete:Point) : void
     + <<override>> Move(x:int, y:int) : void
     + <<override>> Resize(index:double) : void
     + <<override>> Rotate45() : void
     + <<override>> GetView() : PicItem[]
+    + GetArea() : double
+    + GetPerimeter() : int
 }
 Point <|-- Picture
 IGeometrical <|-- Picture

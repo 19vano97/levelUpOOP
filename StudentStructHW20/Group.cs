@@ -11,36 +11,16 @@ public class Group
         private DateTime _startDate;
         private int _currentYear;
         private Supervisor _groupSupervisor;
-        private Subject[] _groupSubjects;
+        private SubjectList[] _groupSubjects;
         private Student[] _groupOfStudents;
         private double _avrMarkOfGroup;
         private Specialization _groupSpecialization;
 
     #endregion
 
-    #region shitCode
-
-        // public Group(string groupName, DateTime startDate, 
-        //                 int currentYear, Supervisor groupSupervisor, 
-        //                 string[] idRecords,
-        //                 Specialization groupSpecialization)
-        // {
-        //     _id.GetGuid();
-        //     _groupName = groupName;
-        //     _startDate = startDate;
-        //     _currentYear = currentYear;
-        //     _groupSupervisor = groupSupervisor;
-        //     _groupSubjects = BL.GetListOfSubjects();
-        //     _groupOfStudents = AddNewStudentsToGroupFromScretch(idRecords);
-        //     _avrMarkOfGroup = GetAvgMarkOfGroup();
-        //     _groupSpecialization = groupSpecialization;
-        // }
-
-    #endregion
-
     public Group(string groupName, DateTime startDate, 
                     int currentYear, Supervisor groupSupervisor, 
-                    Subject[] groupSubjects, Student[] studentsList,
+                    SubjectList[] groupSubjects, Student[] studentsList,
                     double avrMarkOfGroup, Specialization groupSpecialization)
     {
         _groupName = groupName;
@@ -53,111 +33,18 @@ public class Group
         _groupSpecialization = groupSpecialization;
     }
 
-    #region Get/Set
-
-    // public Guid GetId()
-    // {
-    //     return _id;
-    // }
-
-    // public string GetGroupName()
-    // {
-    //     return _groupName;
-    // }
-
-    // public DateTime GetEnrollmentDateOfTheGroup()
-    // {
-    //     return _startDate;
-    // }
-
-    // public int GetCurrentYear()
-    // {
-    //     return _currentYear;
-    // }
-
-    // public Supervisor GetGroupsSupervisor()
-    // {
-    //     return _groupSupervisor;
-    // }
-
-    // public Student[] GetStudentsOfTheGroup()
-    // {
-    //     return _groupOfStudents;
-    // }
-
-    // public int GetAvgMarkOfTheGroup()
-    // {
-    //     return _avrMarkOfGroup;
-    // }
-
-    // public Subject[] GetSubjectsForTheGroup()
-    // {
-    //     return _groupSubjects;
-    // }
-
-    // public Specialization GetSpecializationOfTheGroup()
-    // {
-    //     return _groupSpecialization;
-    // }
-
-    // public void SetGroupName(string groupName = null)
-    // {
-    //     if (groupName == null)
-    //     {
-    //         System.Console.Write("Enter groupName: ");
-    //         groupName = Console.ReadLine();
-    //     }
-
-    //     _groupName = groupName;
-    // }
-
-    // public void SetEnrollmentDateOfTheGroup(DateTime enrollmentDate)
-    // {
-    //     _startDate = enrollmentDate;
-    // }
-
-    // public void SetCurrentYear(int currentYear)
-    // {
-    //     if (currentYear < 0)
-    //     {
-    //         return; //add error
-    //     }
-
-    //     _currentYear = currentYear;
-    // }
-
-    // public void SetGroupsSupervisor(Supervisor supervisorOfTheGroup)
-    // {
-    //     _groupSupervisor = supervisorOfTheGroup;
-    // }
-
-    // public void SetStudentsOfTheGroup(Student[] students)
-    // {
-    //     _groupOfStudents = students;
-    // }
-
-    // public void SetAvgMarkOfTheGroup(int avrMarkOfGroup)
-    // {
-    //     if (avrMarkOfGroup < 0)
-    //     {
-    //         return; //add error
-    //     }
-
-    //     _avrMarkOfGroup = avrMarkOfGroup;
-    // }
-
-    // public void SetSubjectsForTheGroup(Subject[] subjects)
-    // {
-    //     _groupSubjects = subjects;
-    // }
-
-    // public void SetSpecializationOfTheGroup(Specialization groupSpecialization)
-    // {
-    //     _groupSpecialization = groupSpecialization;
-    // }
-
-
-    #endregion
+    public Group(string groupName, DateTime startDate, 
+                    int currentYear, Supervisor groupSupervisor,
+                    Specialization groupSpecialization, string[] idRecords)
+    {
+        _groupName = groupName;
+        _startDate = startDate;
+        _currentYear = currentYear;
+        _groupSupervisor = groupSupervisor;
+        GetListOfSubjects();
+        AddNewStudentsToGroupFromScratch(idRecords);
+        _groupSpecialization = groupSpecialization;
+    }
 
     public Guid UseId    
     {
@@ -201,7 +88,7 @@ public class Group
         set { _avrMarkOfGroup = value; }
     }
 
-    public Subject[] GroupSubjects
+    public SubjectList[] GroupSubjects
     { 
         get { return _groupSubjects; } 
         set { _groupSubjects = value; }
@@ -306,11 +193,11 @@ public class Group
             amountOfSubjects = UI.EnterIntValue("amount of subjects");
         }
 
-        _groupSubjects = new Subject[amountOfSubjects];
+        _groupSubjects = new SubjectList[amountOfSubjects];
 
         for (int i = 0; i < _groupSubjects.Length; i++)
         {
-            _groupSubjects[i].UseSubjectName = GetRandomSubjectList();
+            _groupSubjects[i] = GetRandomSubjectList();
         }
     }
 
@@ -320,7 +207,7 @@ public class Group
 
         for (int i = 0; i < _groupSubjects.Length; i++)
         {
-            if (_groupSubjects[i].UseSubjectName == (SubjectList)value)
+            if (_groupSubjects[i] == (SubjectList)value)
             {
                 return GetRandomSubjectList();
             }

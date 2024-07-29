@@ -4,5 +4,7 @@ class UI {
     + {static} DrawCircle(circleToDraw:Circle, consoleClear:bool) : void
     + {static} DrawPicture(pictureToDraw:Picture) : void
     + {static} PrintIGeometrical(ig:IGeometrical) : void
+    + {static} PrintArrayOfPerimetersInPic(pic:Picture) : void
+    + {static} PrintArrayOfAreaInPic(pic:Picture) : void
 }
 @enduml

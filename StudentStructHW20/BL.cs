@@ -25,14 +25,9 @@ public class BL
             GetDateRandom(MinStudyYear, int.Parse(DateTime.Now.ToString("yyyy"))),
             GetRandomInt(0, MaxStudyYear),
             UI.GetSupervisor(supervisorList),
-            null,
-            null,
-            0,
-            GetRandomSpecialization()
+            GetRandomSpecialization(),
+            idRecords
         );
-
-        initGroup.GetListOfSubjects();
-        initGroup.AddNewStudentsToGroupFromScratch(idRecords);
 
         return initGroup;
     }
@@ -79,13 +74,13 @@ public class BL
         return value;
     }
 
-    public static int[,] GenerateStudentsMarksWithSubjects(Subject[] subjectsList)
+    public static int[,] GenerateStudentsMarksWithSubjects(SubjectList[] subjectsList)
     {
         int[,] marks = new int[subjectsList.Length, 2];
 
         for (int i = 0; i < marks.GetLength(0); i++)
         {
-            marks[i, 0] = (int)subjectsList[i].UseSubjectName;
+            marks[i, 0] = (int)subjectsList[i];
             marks[i, 1] = GetRandomInt(0, MaxMark);
 
         }

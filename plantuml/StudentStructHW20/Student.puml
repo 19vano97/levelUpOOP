@@ -1,12 +1,14 @@
 @startuml
-struct Student {
+class Student {
     + Student(firstName:string, lastName:string, avgMark:int[,], dateOfBirth:DateTime)
     + StudentFirstName : string <<get>> <<set>>
     + StudentLastName : string <<get>> <<set>>
     + StudentAvgMark : double <<get>> <<set>>
+    + CompareTo(obj:object?) : int
     + GetAvgMarkOfTheStudent() : double
     + IsStudentExists(name:string) : bool
 }
+IComparable <|-- Student
 Student --> "StudentIdRecord" Guid
 Student --> "StudentDateOfBirth" DateTime
 @enduml

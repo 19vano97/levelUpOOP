@@ -1,0 +1,5 @@
+@startuml
+class Program {
+    + {static} TestCopy(source:object) : void
+}
+@enduml

@@ -5,7 +5,7 @@ class BL {
     + {static} GetRandomFirstname() : string
     + {static} GetRandomLastname() : string
     + {static} GetRandomInt(minValue:int, maxValue:int) : int
-    + {static} GenerateStudentsMarksWithSubjects(subjectsList:Subject[]) : int[,]
+    + {static} GenerateStudentsMarksWithSubjects(subjectsList:SubjectList[]) : int[,]
     + {static} GenerateMarkOfOneStudentRandom(listOfSubjects:Subject[]) : int[]
     + {static} GetRandomSupervisors(value:int) : Supervisor[]
     + {static} GetRandomSpecialization() : Specialization

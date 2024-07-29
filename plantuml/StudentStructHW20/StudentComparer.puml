@@ -1,0 +1,6 @@
+@startuml
+class StudentComparer {
+    + Compare(x:object?, y:object?) : int
+}
+IComparer <|-- StudentComparer
+@enduml

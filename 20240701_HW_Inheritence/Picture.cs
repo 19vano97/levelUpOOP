@@ -67,6 +67,15 @@ public class Picture : Point, IGeometrical
         _figures[_figures.Length - 1] = figureToAdd;
     }
 
+    public void Add(params Point[] figureToAdd)
+    {
+        for (int i = 0; i < figureToAdd.Length; i++)
+        {
+            Array.Resize(ref _figures, _figures.Length + 1);
+            _figures[_figures.Length - 1] = figureToAdd[i];
+        }
+    }
+
     public void Delete(Point figureToDelete)
     {
         int index = 0;
@@ -92,6 +101,14 @@ public class Picture : Point, IGeometrical
     {
         get { return _figures[index]; }
         set { _figures[index] = value; }
+    }
+
+    public Point[] Points
+    {
+        get
+        {
+            return _figures;
+        }
     }
 
     public override void Move(int x, int y)
@@ -144,106 +161,6 @@ public class Picture : Point, IGeometrical
 
         return figuresView;
     }
-
-    // public override double GetArea()
-    // {
-    //     int[] sides = FindSidesOfQuadraliteral();
-
-    //     int p = GetPerimeter() / 2;
-
-    //     double d = 1d;
-
-    //     for (int i = 0; i < sides.Length; i++)
-    //     {
-    //         d *= p - sides[i];
-    //     }
-      
-    //     return Math.Sqrt(d);
-    // }
-
-    // public override int GetPerimeter()
-    // {
-    //     int[] sides = FindSidesOfQuadraliteral();
-
-    //     int p = 0;
-
-    //     for (int i = 0; i < sides.Length; i++)
-    //     {
-    //         p += sides[i];
-    //     }
-
-    //     return p;
-    // }
-
-    // private int[] FindSidesOfQuadraliteral()
-    // {
-    //     Point[] points = CalculateMaxPoints();
-
-    //     int[] sides = new int[4];
-
-    //     for (int i = 0; i < points.Length; i++)
-    //     {
-    //         if (i < points.Length - 1)
-    //         {
-    //             sides[i] = (int)Math.Sqrt(Math.Pow(points[i + 1].CoordX - points[i].CoordX, 2) + Math.Pow(points[i + 1].CoordY - points[i].CoordY, 2));
-    //         }
-    //         else
-    //         {
-    //             sides[i] = (int)Math.Sqrt(Math.Pow(points[i].CoordX - points[0].CoordX, 2) + Math.Pow(points[i].CoordY - points[0].CoordY, 2));
-    //         }
-    //     }
-
-    //     return sides;
-    // }
-
-    // private Point[] CalculateMaxPoints()
-    // {
-    //     Point[] points = new Point[4];
-
-    //     for (int i = 0; i < points.Length; i++)
-    //     {
-    //         points[i] = new Point(155, 22);
-    //         // points[i] = new Point(Console.WindowWidth, Console.WindowHeight);
-    //     }
-
-    //     for (int i = 0; i < points.Length; i++)
-    //     {
-    //         for (int k = 0; k < _figures.Length; k++)
-    //         {
-    //             if (_figures[k] is Quadrilateral)
-    //             {
-    //                 for (int m = 0; m < _figures[k].Points.Length; m++)
-    //                 {
-    //                     if (points[i].CoordX > _figures[k].Points[m].CoordX && points[i].CoordY < _figures[k].Points[m].CoordY)   //point[0] TOP Left
-    //                     {
-    //                         points[i].UpdatePoint(_figures[k]);
-    //                         break;
-    //                     }
-                        
-    //                     if (points[i].CoordX < _figures[k].CoordX && points[i].CoordY < _figures[k].CoordY)   //point[1] TOP right
-    //                     {
-    //                         points[i].UpdatePoint(_figures[k]);
-    //                         break;
-    //                     }
-        
-    //                     if (points[i].CoordX > _figures[k].CoordX && points[i].CoordY > _figures[k].CoordY)   //point[2] bottom left
-    //                     {
-    //                         points[i].UpdatePoint(_figures[k]);
-    //                         break;
-    //                     }
-        
-    //                     if (points[i].CoordX < _figures[k].CoordX && points[i].CoordY > _figures[k].CoordY)   //point[3] bottom right
-    //                     {
-    //                         points[i].UpdatePoint(_figures[k]);
-    //                         break;
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     return points;
-    // }
 
     public double GetArea()
     {

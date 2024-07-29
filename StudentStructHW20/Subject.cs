@@ -1,6 +1,6 @@
 ﻿namespace _20240522_HW20;
 
-public struct Subject
+public class Subject
 {
     private SubjectList _subjectName;
 

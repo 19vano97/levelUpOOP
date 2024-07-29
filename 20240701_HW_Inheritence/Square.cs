@@ -2,7 +2,7 @@
 
 namespace _20240701_HW_Inheritence;
 
-public class Square : Quadrilateral, IGeometrical
+public class Square : Quadrilateral, IGeometrical, IComparable
 {
     #region default ctors
 
@@ -36,5 +36,27 @@ public class Square : Quadrilateral, IGeometrical
     public int GetPerimeter()
     {
         return _length * 4;
+    }
+
+    public int CompareTo(object? obj)
+    {
+        Square s2 = obj as Square;
+
+        if (s2 == null)
+        {
+            return 1;
+        }
+
+        if (GetArea() > s2.GetArea())
+        {
+            return 1;
+        }
+
+        if (GetArea() < s2.GetArea())
+        {
+            return -1;
+        }
+
+        return 0;
     }
 }

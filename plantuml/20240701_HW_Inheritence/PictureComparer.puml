@@ -1,0 +1,6 @@
+@startuml
+class PictureComparer {
+    + Compare(x:object?, y:object?) : int
+}
+IComparer <|-- PictureComparer
+@enduml

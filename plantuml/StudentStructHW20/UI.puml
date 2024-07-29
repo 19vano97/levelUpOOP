@@ -3,6 +3,7 @@ class UI {
     + {static} PrintMainMenu() : void
     + {static} PrintNextMainMenu(groupList:Faculty, idRecords:string[], supervisorList:Supervisor[]) : void
     + {static} EditGroupUI(groupList:Faculty, groupToEdit:Group, idRecords:string[], supervisorList:Supervisor[]) : void
+    + {static} CompareStudents(groupList:Faculty, idRecords:string[], supervisorList:Supervisor[]) : void
     + {static} UseGroupFromList(groupList:Faculty) : Group
     + {static} EnterIntValue(message:string) : int
     + {static} EnterString(message:string) : string

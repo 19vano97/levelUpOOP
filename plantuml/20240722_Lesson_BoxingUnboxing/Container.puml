@@ -1,0 +1,7 @@
+@startuml
+class Container {
+    + Container(items:object[])
+    + Add(item:object) : void
+    + Size : int <<get>>
+}
+@enduml

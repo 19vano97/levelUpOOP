@@ -3,10 +3,12 @@ class Rectangle {
     + Rectangle(x:int, y:int, length:int, height:int)
     + Rectangle(newQuadrilateral:Quadrilateral, height:int)
     + heightOfRectangle : int <<get>> <<set>>
-    + <<override>> GetArea() : double
-    + <<override>> GetPerimeter() : int
+    + GetArea() : double
+    + GetPerimeter() : int
     + <<override>> Resize(index:double) : void
+    + CompareTo(obj:object?) : int
 }
 Quadrilateral <|-- Rectangle
 IGeometrical <|-- Rectangle
+IComparable <|-- Rectangle
 @enduml

@@ -2,9 +2,11 @@
 class Square {
     + Square(x:int, y:int, length:int)
     + Square(newQuadrilateral:Quadrilateral)
-    + <<override>> GetArea() : double
-    + <<override>> GetPerimeter() : int
+    + GetArea() : double
+    + GetPerimeter() : int
+    + CompareTo(obj:object?) : int
 }
 Quadrilateral <|-- Square
 IGeometrical <|-- Square
+IComparable <|-- Square
 @enduml

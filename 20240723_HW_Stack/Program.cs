@@ -11,6 +11,9 @@ internal class Program
         System.Console.WriteLine("IsFull: {0}", s1.IsFull());
         System.Console.WriteLine("IsEmpty: {0}", s1.IsEmpty());
 
+        object[] items = s1.Items;
+        items[1] = 3.6;
+
         for (int i = 0; i < s1.Size; i++)
         {
             s1.Pop();

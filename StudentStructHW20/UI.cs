@@ -48,6 +48,7 @@ public class UI
         System.Console.WriteLine("E. Edit a group");
         System.Console.WriteLine("D. Delete a group");
         System.Console.WriteLine("I. Find a student");
+        System.Console.WriteLine("S. Compare students");
         System.Console.WriteLine("C. Clear console");
         System.Console.WriteLine("Esc. Exit");
         System.Console.WriteLine();
@@ -57,7 +58,7 @@ public class UI
 
         do
         {
-            Console.SetCursorPosition(13, 9);
+            Console.SetCursorPosition(13, 10);
 
             key = Console.ReadKey().Key;
 
@@ -97,6 +98,9 @@ public class UI
                     break;
                 case ConsoleKey.I:
                     PrintStudentsBySearch(groupList ,EnterString("firstName / lastName / idRecord"));
+                    break;
+                case ConsoleKey.S:
+                    CompareStudents(groupList, idRecords, supervisorList);
                     break;
                 case ConsoleKey.C:
                     Console.Clear();
@@ -165,6 +169,64 @@ public class UI
 
                     break;
 
+                case ConsoleKey.Backspace:
+                    PrintNextMainMenu(groupList, idRecords, supervisorList);
+                    break;
+                default:
+                break;
+            }
+        } while (key != ConsoleKey.Escape);
+    }
+
+    public static void CompareStudents(Faculty groupList, string[] idRecords, 
+                                    Supervisor[] supervisorList)
+    {
+        Console.Clear();
+
+        Group groupToSort = UseGroupFromList(groupList);
+
+        Console.Clear();
+
+        System.Console.WriteLine("Selected group: {0}", groupToSort.GroupName);
+        System.Console.WriteLine("C. Sort students by filrstName and lastName");
+        System.Console.WriteLine("D. Sort students by avg mark");
+        System.Console.WriteLine("Backspace. Back");
+        System.Console.WriteLine("Esc. Exit");
+        System.Console.WriteLine();
+        System.Console.WriteLine("Your choice: ");
+
+        ConsoleKey key;        
+
+        do
+        {
+            Console.SetCursorPosition(13, 6);
+
+            key = Console.ReadKey().Key;
+
+            switch (key)
+            {
+                case ConsoleKey.C:
+
+                    Array.Sort(groupToSort.GroupStudents, new StudentComparer());
+
+                    for (int i = 0; i < groupToSort.GroupStudents.Length; i++)
+                    {
+                        PrintStudent(groupToSort.GroupStudents[i]);
+                    }
+
+
+                    
+                    break;
+                case ConsoleKey.D:
+
+                    Array.Sort(groupToSort.GroupStudents);
+
+                    for (int i = 0; i < groupToSort.GroupStudents.Length; i++)
+                    {
+                        PrintStudent(groupToSort.GroupStudents[i]);
+                    }
+
+                    break;
                 case ConsoleKey.Backspace:
                     PrintNextMainMenu(groupList, idRecords, supervisorList);
                     break;

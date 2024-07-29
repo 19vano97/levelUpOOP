@@ -1,6 +1,7 @@
 @startuml
 class Group {
-    + Group(groupName:string, startDate:DateTime, currentYear:int, groupSupervisor:Supervisor, groupSubjects:Subject[], studentsList:Student[], avrMarkOfGroup:double, groupSpecialization:Specialization)
+    + Group(groupName:string, startDate:DateTime, currentYear:int, groupSupervisor:Supervisor, groupSubjects:SubjectList[], studentsList:Student[], avrMarkOfGroup:double, groupSpecialization:Specialization)
+    + Group(groupName:string, startDate:DateTime, currentYear:int, groupSupervisor:Supervisor, groupSpecialization:Specialization, idRecords:string[])
     + GroupName : string <<get>> <<set>>
     + CurrentYear : int <<get>> <<set>>
     + AvrMarkOfGroup : double <<get>> <<set>>

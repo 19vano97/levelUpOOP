@@ -1,5 +1,5 @@
 @startuml
-struct Subject {
+class Subject {
 }
 Subject --> "UseSubjectName" SubjectList
 @enduml
