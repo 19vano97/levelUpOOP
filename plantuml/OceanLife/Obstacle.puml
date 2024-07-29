@@ -1,0 +1,6 @@
+@startuml
+class Obstacle {
+    + Obstacle(x:int, y:int)
+}
+Cell <|-- Obstacle
+@enduml

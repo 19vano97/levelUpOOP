@@ -1,0 +1,8 @@
+@startuml
+class Coordinates {
+    + Coordinates(x:int, y:int)
+    + Coordinates()
+    + X : int <<get>> <<set>>
+    + Y : int <<get>> <<set>>
+}
+@enduml
