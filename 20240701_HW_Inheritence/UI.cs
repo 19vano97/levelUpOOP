@@ -62,9 +62,16 @@ public class UI
 
     public static void PrintArrayOfPerimetersInPic(Picture pic)
     {
-        for (int i = 0; i < pic.Points.Length; i++)
+        // for (int i = 0; i < pic.Points.Length; i++)
+        // {
+        //     IGeometrical ig = pic.Points[i] as IGeometrical;
+
+        //     System.Console.WriteLine("Perimeter {0}: {1}", ig, ig.GetPerimeter());
+        // }
+
+        foreach (var item in pic)
         {
-            IGeometrical ig = pic.Points[i] as IGeometrical;
+            IGeometrical ig = item as IGeometrical;
 
             System.Console.WriteLine("Perimeter {0}: {1}", ig, ig.GetPerimeter());
         }
@@ -72,9 +79,16 @@ public class UI
 
     public static void PrintArrayOfAreaInPic(Picture pic)
     {
-        for (int i = 0; i < pic.Points.Length; i++)
+        // for (int i = 0; i < pic.Points.Length; i++)
+        // {
+        //     IGeometrical ig = pic.Points[i] as IGeometrical;
+
+        //     System.Console.WriteLine("Area {0}: {1}", ig, ig.GetArea());
+        // }
+
+        foreach (var item in pic)
         {
-            IGeometrical ig = pic.Points[i] as IGeometrical;
+            IGeometrical ig = item as IGeometrical;
 
             System.Console.WriteLine("Area {0}: {1}", ig, ig.GetArea());
         }

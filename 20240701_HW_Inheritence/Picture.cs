@@ -1,10 +1,11 @@
-﻿using System.Globalization;
+﻿using System.Collections;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace _20240701_HW_Inheritence;
 
-public class Picture : Point, IGeometrical
+public class Picture : Point, IGeometrical, IEnumerable
 {
     #region variables
 
@@ -162,37 +163,74 @@ public class Picture : Point, IGeometrical
         return figuresView;
     }
 
-    public double GetArea()
-    {
-        double area = 0d;
+    #region IGeometrical
 
-        for (int i = 0; i < _figures.Length; i++)
+        public double GetArea()
         {
-            if (_figures[i] is IGeometrical)
+            double area = 0d;
+    
+            for (int i = 0; i < _figures.Length; i++)
             {
-                area += ((IGeometrical)_figures[i]).GetArea();
+                if (_figures[i] is IGeometrical)
+                {
+                    area += ((IGeometrical)_figures[i]).GetArea();
+                }
             }
+    
+            return area;
+        }
+    
+        public int GetPerimeter()
+        {
+            int p = 0;
+    
+            for (int i = 0; i < _figures.Length; i++)
+            {
+                IGeometrical ig = _figures[i] as IGeometrical;
+    
+                if (ig != null)
+                {
+                    p += ig.GetPerimeter();
+                }
+            }
+    
+            return p;
         }
 
-        return area;
-    }
+    #endregion
 
-    public int GetPerimeter()
-    {
-        int p = 0;
+    #region IEnumirable
 
-        for (int i = 0; i < _figures.Length; i++)
+        IEnumerator IEnumerable.GetEnumerator()
         {
-            IGeometrical ig = _figures[i] as IGeometrical;
-
-            if (ig != null)
-            {
-                p += ig.GetPerimeter();
-            }
+            return _figures.GetEnumerator();
         }
 
-        return p;
+        private struct PictureEnumerator : IEnumerator
+        {
+            private Picture _pic;
+            private int _position;
+
+            public PictureEnumerator(Picture pic)
+            {
+                _pic = pic;
+                _position = -1;
+            }
+
+            public object Current => _pic._figures[_position];
+
+            public bool MoveNext()
+            {
+                ++_position;
+
+                return _position < _pic._figures.Length;
+            }
+
+            public void Reset()
+            {
+                _position = -1;
+            }
     }
 
-
+    #endregion
 }

@@ -1,8 +1,9 @@
-﻿using StudentStructHW20;
+﻿using System.Collections;
+using StudentStructHW20;
 
 namespace _20240522_HW20;
 
-public class Group
+public class Group : IEnumerable
 {
     #region private variables
 
@@ -18,89 +19,97 @@ public class Group
 
     #endregion
 
-    public Group(string groupName, DateTime startDate, 
-                    int currentYear, Supervisor groupSupervisor, 
-                    SubjectList[] groupSubjects, Student[] studentsList,
-                    double avrMarkOfGroup, Specialization groupSpecialization)
-    {
-        _groupName = groupName;
-        _startDate = startDate;
-        _currentYear = currentYear;
-        _groupSupervisor = groupSupervisor;
-        _groupSubjects = groupSubjects;
-        _groupOfStudents = studentsList;
-        _avrMarkOfGroup = avrMarkOfGroup;
-        _groupSpecialization = groupSpecialization;
-    }
+    #region default ctors
 
-    public Group(string groupName, DateTime startDate, 
-                    int currentYear, Supervisor groupSupervisor,
-                    Specialization groupSpecialization, string[] idRecords)
-    {
-        _groupName = groupName;
-        _startDate = startDate;
-        _currentYear = currentYear;
-        _groupSupervisor = groupSupervisor;
-        GetListOfSubjects();
-        AddNewStudentsToGroupFromScratch(idRecords);
-        _groupSpecialization = groupSpecialization;
-    }
-
-    public Guid UseId    
-    {
-        get { return _id; }
-        set { _id = value; }
-    }
-
-    public string GroupName
-    {
-        get { return _groupName; }
-        set { _groupName = value; }
-    }
-
-    public DateTime EnrollmentDateOfTheGroup
-    {
-        get { return _startDate; }
-        set { _startDate = value; }
-    }
+        public Group(string groupName, DateTime startDate, 
+                        int currentYear, Supervisor groupSupervisor, 
+                        SubjectList[] groupSubjects, Student[] studentsList,
+                        double avrMarkOfGroup, Specialization groupSpecialization)
+        {
+            _groupName = groupName;
+            _startDate = startDate;
+            _currentYear = currentYear;
+            _groupSupervisor = groupSupervisor;
+            _groupSubjects = groupSubjects;
+            _groupOfStudents = studentsList;
+            _avrMarkOfGroup = avrMarkOfGroup;
+            _groupSpecialization = groupSpecialization;
+        }
     
-    public int CurrentYear     
-    {
-        get { return _currentYear; }
-        set { _currentYear = value; }
-    }
+        public Group(string groupName, DateTime startDate, 
+                        int currentYear, Supervisor groupSupervisor,
+                        Specialization groupSpecialization, string[] idRecords)
+        {
+            _groupName = groupName;
+            _startDate = startDate;
+            _currentYear = currentYear;
+            _groupSupervisor = groupSupervisor;
+            GetListOfSubjects();
+            AddNewStudentsToGroupFromScratch(idRecords);
+            _groupSpecialization = groupSpecialization;
+        }
 
-    public Supervisor GroupSupervisor 
-    { 
-        get { return _groupSupervisor; } 
-        set { _groupSupervisor = value; }
-    }
+    #endregion
+
+    #region props
+
+        public Guid UseId    
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
     
-    public Student[] GroupStudents
-    { 
-        get { return _groupOfStudents; } 
-        set { _groupOfStudents = value; }
-    }
+        public string GroupName
+        {
+            get { return _groupName; }
+            set { _groupName = value; }
+        }
+    
+        public DateTime EnrollmentDateOfTheGroup
+        {
+            get { return _startDate; }
+            set { _startDate = value; }
+        }
+        
+        public int CurrentYear     
+        {
+            get { return _currentYear; }
+            set { _currentYear = value; }
+        }
+    
+        public Supervisor GroupSupervisor 
+        { 
+            get { return _groupSupervisor; } 
+            set { _groupSupervisor = value; }
+        }
+        
+        public Student[] GroupStudents
+        { 
+            get { return _groupOfStudents; } 
+            set { _groupOfStudents = value; }
+        }
+    
+        public double AvrMarkOfGroup
+        { 
+            get { return _avrMarkOfGroup; } 
+            set { _avrMarkOfGroup = value; }
+        }
+    
+        public SubjectList[] GroupSubjects
+        { 
+            get { return _groupSubjects; } 
+            set { _groupSubjects = value; }
+        }
+    
+        public Specialization GroupSpecialization
+        { 
+            get { return _groupSpecialization; } 
+            set { _groupSpecialization = value; }
+        }
+    
+        public DateTime StartDate { get; }
 
-    public double AvrMarkOfGroup
-    { 
-        get { return _avrMarkOfGroup; } 
-        set { _avrMarkOfGroup = value; }
-    }
-
-    public SubjectList[] GroupSubjects
-    { 
-        get { return _groupSubjects; } 
-        set { _groupSubjects = value; }
-    }
-
-    public Specialization GroupSpecialization
-    { 
-        get { return _groupSpecialization; } 
-        set { _groupSpecialization = value; }
-    }
-
-    public DateTime StartDate { get; }
+    #endregion
 
     public void DeleteStudent(Student studentToDelete)
     {
@@ -231,5 +240,39 @@ public class Group
 
         return studentsFound;
     }
-    
+
+    #region StudentIEnumerator
+
+        public IEnumerator GetEnumerator()
+        {
+            return _groupOfStudents.GetEnumerator();
+        }
+
+        private struct StudentIEnumerator : IEnumerator
+        {
+            private Group _group;
+            private int _position;
+
+            public StudentIEnumerator(Group source)
+            {
+                _group = source;
+                _position = -1;
+            }
+
+            public object Current => _group._groupOfStudents[_position];
+
+            public bool MoveNext()
+            {
+                ++_position;
+
+                return _position < _group._groupOfStudents.Length;
+            }
+
+            public void Reset()
+            {
+                _position = -1;
+            }
+    }
+
+    #endregion
 }

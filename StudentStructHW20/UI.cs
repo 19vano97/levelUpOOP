@@ -207,7 +207,7 @@ public class UI
             {
                 case ConsoleKey.C:
 
-                    Array.Sort(groupToSort.GroupStudents, new StudentComparer());
+                    Array.Sort(groupToSort.GroupStudents);
 
                     for (int i = 0; i < groupToSort.GroupStudents.Length; i++)
                     {
@@ -219,7 +219,7 @@ public class UI
                     break;
                 case ConsoleKey.D:
 
-                    Array.Sort(groupToSort.GroupStudents);
+                    Array.Sort(groupToSort.GroupStudents, new StudentComparer());
 
                     for (int i = 0; i < groupToSort.GroupStudents.Length; i++)
                     {
@@ -341,25 +341,47 @@ public class UI
 
        if (groupPrint.GroupStudents != null)
        {
-            for (int i = 0; i < groupPrint.GroupStudents.Length; i++)
-            {
-                System.Console.WriteLine("{0}. {1} {2}, IdRecord: {3}", i, 
-                                            groupPrint.GroupStudents[i].StudentLastName,
-                                            groupPrint.GroupStudents[i].StudentFirstName, 
-                                            groupPrint.GroupStudents[i].StudentIdRecord);
+            // for (int i = 0; i < groupPrint.GroupStudents.Length; i++)
+            // {
+            //     System.Console.WriteLine("{0}. {1} {2}, IdRecord: {3}", i, 
+            //                                 groupPrint.GroupStudents[i].StudentLastName,
+            //                                 groupPrint.GroupStudents[i].StudentFirstName, 
+            //                                 groupPrint.GroupStudents[i].StudentIdRecord);
                 
-                for (int y = 0; y < groupPrint.GroupStudents[i].StudentMarks.GetLength(0); y++)
+            //     for (int y = 0; y < groupPrint.GroupStudents[i].StudentMarks.GetLength(0); y++)
+            //     {
+            //         Console.CursorLeft = 10;
+            //         System.Console.WriteLine("{0, 10}: {1}", (SubjectList)groupPrint.GroupStudents[i].StudentMarks[y, 0],
+            //                                                             groupPrint.GroupStudents[i].StudentMarks[y, 1]);
+            //     }
+
+            //     Console.CursorLeft = 10;
+            //     System.Console.WriteLine("Avarage mark: {0}", groupPrint.GroupStudents[i].StudentAvgMark);
+            // }
+
+            foreach (Student std in groupPrint)
+            {
+                System.Console.WriteLine("{0} {1}, IdRecord: {2}", 
+                                            std.StudentLastName,
+                                            std.StudentFirstName, 
+                                            std.StudentIdRecord);
+                
+                for (int y = 0; y < std.StudentMarks.GetLength(0); y++)
                 {
                     Console.CursorLeft = 10;
-                    System.Console.WriteLine("{0, 10}: {1}", (SubjectList)groupPrint.GroupStudents[i].StudentMarks[y, 0],
-                                                                        groupPrint.GroupStudents[i].StudentMarks[y, 1]);
+                    System.Console.WriteLine("{0, 10}: {1}", (SubjectList)std.StudentMarks[y, 0],
+                                                                        std.StudentMarks[y, 1]);
                 }
+                // foreach (var marks in std.StudentMarks)
+                // {
+                //     Console.CursorLeft = 10;
+                // //     System.Console.WriteLine("{0, 10}: {1}", (SubjectList)groupPrint.GroupStudents[i].StudentMarks[y, 0],
+                // //                                                         groupPrint.GroupStudents[i].StudentMarks[y, 1]);
+                // }
 
                 Console.CursorLeft = 10;
-                System.Console.WriteLine("Avarage mark: {0}", groupPrint.GroupStudents[i].StudentAvgMark);
+                System.Console.WriteLine("Avarage mark: {0}", std.StudentAvgMark);
             }
-
-            
 
        }
        else
