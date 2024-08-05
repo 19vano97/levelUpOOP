@@ -3,8 +3,7 @@
 public class Predator : Prey
 {
     #region varaibles
-    
-        protected int _numPredators;
+
         protected int _timeToFeed;
 
     #endregion
@@ -13,13 +12,36 @@ public class Predator : Prey
 
         public Predator(int x, int y) : base(x, y, Image.Shark)
         {
-            _numPredators = (int)Consts.DEFAULT_NUM_PREDATORS;
-            _timeToFeed = (int)Consts.DEFAULT_TIME_TO_FEED;
+            _timeToFeed = Consts.DEFAULT_TIME_TO_FEED;
         }
-        
+
     #endregion
 
     #region prop
-        
+
+        public int TimeToFeed
+        {
+            get
+            {
+                if (_timeToFeed < 0)
+                {
+                    return 0;
+                }
+
+                return _timeToFeed;
+            }
+            set
+            {
+                if (_timeToFeed < 0)
+                {
+                    return;
+                }
+                
+                _timeToFeed = value;
+            }
+        }
+
     #endregion
+
+    public override void ReduceTTL() => _timeToFeed -= 1;
 }

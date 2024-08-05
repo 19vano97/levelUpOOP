@@ -1,12 +1,11 @@
 ﻿namespace OceanLife;
 
-public class Cell
+public abstract class Cell
 {
     #region variables
 
         protected Coordinates _coord;
         protected Image _defaultImage; 
-        protected int _timeToReproduce;
 
     #endregion
 
@@ -16,7 +15,6 @@ public class Cell
         {
             _coord.X = x;
             _coord.Y = y;
-            _timeToReproduce = (int)Consts.DEFAULT_TIME_TO_REPRODUCE;
 
             if (_defaultImage == null)
             {
@@ -28,6 +26,9 @@ public class Cell
         {
             _defaultImage = im;
         }
+
+        public Cell() : this(0, 0)
+        {}
 
     #endregion
 
@@ -54,4 +55,7 @@ public class Cell
         }
 
     #endregion
+
+    public abstract void ReduceTTL();
+
 }

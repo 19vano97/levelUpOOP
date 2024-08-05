@@ -4,8 +4,7 @@ public class Prey : Cell
 {
     #region variables
 
-        protected int _numPrey;
-
+        protected int _timeToReproduce;
 
     #endregion
 
@@ -13,34 +12,42 @@ public class Prey : Cell
 
         public Prey(int x, int y) : base(x, y, Image.Fish)
         {
-            _numPrey = (int)Consts.DEFAULT_NUM_PREY;
+            _timeToReproduce = Consts.DEFAULT_TIME_TO_REPRODUCE;   
         }
 
         public Prey(int x, int y, Image im) : base(x, y, im)
         {
-            _numPrey = (int)Consts.DEFAULT_NUM_PREY;
+            _timeToReproduce = Consts.DEFAULT_TIME_TO_REPRODUCE;  
         }
         
     #endregion
 
     #region props
 
-        public int Num
+        public int TimeToReproduce
         {
             get
             {
-                return _numPrey;
+                if (_timeToReproduce < 0)
+                {
+                    return 0;
+                }
+
+                return _timeToReproduce;
             }
             set
             {
-                if (_numPrey < 0)
+                if (_timeToReproduce < 0)
                 {
                     return;
                 }
 
-                _numPrey = value;
+                _timeToReproduce = value;
             }
         }
-        
+
     #endregion
+
+    public override void ReduceTTL() => _timeToReproduce -= 1;
+
 }
