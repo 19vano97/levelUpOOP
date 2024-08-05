@@ -90,6 +90,11 @@ public class UI
         {
             IGeometrical ig = item as IGeometrical;
 
+            if (ig == null)
+            {
+                continue;
+            }
+
             System.Console.WriteLine("Area {0}: {1}", ig, ig.GetArea());
         }
     }
