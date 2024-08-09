@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace OceanLife;
 
@@ -23,6 +24,8 @@ public class Ocean
             _numPrey = Consts.DEFAULT_NUM_PREY;
             _numObstacles = Consts.DEFAULT_NUM_OBSTACLES;
             _numPredators = Consts.DEFAULT_NUM_PREDATORS;
+
+            Init();
         }
 
     #endregion
@@ -47,8 +50,8 @@ public class Ocean
 
         public Cell this[int indexX, int indexY]
         {
-            get { return _cells[indexX, indexY]; }
-            set { _cells[indexX, indexY] = value; }
+            get => _cells[indexX, indexY];
+            set => _cells[indexX, indexY] = value;
         }
 
         public int NumPrey
@@ -120,6 +123,36 @@ public class Ocean
     #endregion
 
     public void Init()
+    {
+        for (int i = 0; i < _cells.GetLength(0); i++)
+        {
+            for (int k = 0; k < _cells.GetLength(1); k++)
+            {
+                _cells[i, k] = new Cell(i, k);
+            }
+        }
+        
+        for (int i = 0; i < _numPrey; i++)
+        {
+            Coordinates coord = GetRandomCoordinate();
+
+            _cells[coord.X, coord.Y] = new Prey(coord);
+        }
+
+        for (int i = 0; i < _numPredators; i++)
+        {
+            Coordinates coord = GetRandomCoordinate();
+
+            _cells[coord.X, coord.Y] = new Predator(coord);
+        }
+
+        for (int i = 0; i < _numObstacles; i++)
+        {
+            Coordinates coord = GetRandomCoordinate();
+
+            _cells[coord.X, coord.Y] = new Obstacle(coord);
+        }
+    }
 
     public void TakeAwayFeedAndReproduce()
     {
@@ -147,7 +180,65 @@ public class Ocean
 
     public void AddPrey(int num)
     {
+        _numPrey += num;
 
+        for (int i = 0; i < num; i++)
+        {
+            Coordinates coord = GetRandomCoordinate();
+
+            _cells[coord.X, coord.Y] = new Prey(coord);
+        }
+    }
+
+    public void AddPredator(int num)
+    {
+        _numPrey += num;
+
+        for (int i = 0; i < num; i++)
+        {
+            Coordinates coord = GetRandomCoordinate();
+
+            _cells[coord.X, coord.Y] = new Predator(coord);
+        }
+    }
+
+    public void AddObstacles(int num)
+    {
+        _numPrey += num;
+
+        for (int i = 0; i < num; i++)
+        {
+            Coordinates coord = GetRandomCoordinate();
+
+            _cells[coord.X, coord.Y] = new Obstacle(coord);
+        }
+    }
+
+    private Coordinates GetRandomCoordinate()
+    {
+        Coordinates coord = new Coordinates();
+        
+        coord.X = BL.GetRandomInt(1, _cells.GetLength(0));
+        coord.Y = BL.GetRandomInt(1, _cells.GetLength(1));
+
+        if (!IsEmptyCell(coord))
+        {
+            return GetRandomCoordinate();
+        }
+
+        return coord;
+    }
+
+    private bool IsEmptyCell(Coordinates coord)
+    {
+        if (_cells[coord.X, coord.Y] is Prey 
+            || _cells[coord.X, coord.Y] is Predator 
+            || _cells[coord.X, coord.Y] is Obstacle)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     

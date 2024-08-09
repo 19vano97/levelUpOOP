@@ -19,6 +19,9 @@ public class Prey : Cell
         {
             _timeToReproduce = Consts.DEFAULT_TIME_TO_REPRODUCE;  
         }
+
+        public Prey(Coordinates coord) : this(coord.X, coord.Y)
+        {}
         
     #endregion
 

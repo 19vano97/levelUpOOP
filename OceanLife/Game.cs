@@ -8,10 +8,15 @@ public class Game
 
     public Game()
     {
+        UI.DisplayCells(oc);
+
         do
         {
+            
 
 
+            UI.DisplayCells(oc);
+            UI.DisplayStats(oc, iteration);
             oc.TakeAwayFeedAndReproduce();
             iteration--;
             

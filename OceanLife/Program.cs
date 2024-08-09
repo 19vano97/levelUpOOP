@@ -1,7 +1,11 @@
-﻿internal class Program
+﻿using OceanLife;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Game r = new Game();
+
+        
     }
 }

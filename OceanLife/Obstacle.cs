@@ -12,6 +12,9 @@ public class Obstacle : Cell
         {
         }
 
+        public Obstacle(Coordinates coord) : this(coord.X, coord.Y)
+        {}
+
     #endregion
 
     #region prop

@@ -13,21 +13,16 @@ public abstract class Cell
 
         public Cell(int x, int y)
         {
-            _coord.X = x;
-            _coord.Y = y;
-
-            if (_defaultImage == null)
-            {
-                _defaultImage = Image.Cell;
-            }
+            _coord = new Coordinates(x, y);
+            _defaultImage = Image.Cell;
         }
 
-        public Cell(int x, int y, Image im) : this(x, y)
+        public Cell(int x, int y, Image im)
         {
             _defaultImage = im;
         }
 
-        public Cell() : this(0, 0)
+        public Cell(Coordinates coord) : this(coord.X, coord.Y)
         {}
 
     #endregion

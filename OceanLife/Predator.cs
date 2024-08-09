@@ -15,6 +15,9 @@ public class Predator : Prey
             _timeToFeed = Consts.DEFAULT_TIME_TO_FEED;
         }
 
+        public Predator(Coordinates coord) : this(coord.X, coord.Y)
+        {}
+
     #endregion
 
     #region prop
