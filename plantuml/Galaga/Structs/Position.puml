@@ -1,6 +1,0 @@
-@startuml
-struct Position {
-    + x : int
-    + y : int
-}
-@enduml

@@ -1,0 +1,8 @@
+@startuml
+class Prey {
+    + Prey(x:int, y:int)
+    + Prey(x:int, y:int, im:Image)
+    + Num : int <<get>>
+}
+Cell <|-- Prey
+@enduml

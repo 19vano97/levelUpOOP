@@ -1,0 +1,6 @@
+@startuml
+class Predator {
+    + Predator(x:int, y:int)
+}
+Prey <|-- Predator
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class Cell {
+    + Cell(x:int, y:int)
+    + Cell(x:int, y:int, im:Image)
+}
+Cell --> "Coord" Coordinates
+Cell --> "DefaultImage" Image
+@enduml

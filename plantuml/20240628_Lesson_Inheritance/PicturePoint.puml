@@ -1,7 +1,0 @@
-@startuml
-struct PicturePoint {
-    + x : int
-    + y : int
-    + symbol : char
-}
-@enduml
