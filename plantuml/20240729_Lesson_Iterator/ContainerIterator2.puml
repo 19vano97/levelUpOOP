@@ -1,0 +1,8 @@
+@startuml
+struct ContainerIterator2 {
+    + ContainerIterator2(source:IContainer)
+    + Current : object <<get>>
+    + MoveNext() : bool
+    + Reset() : void
+}
+@enduml

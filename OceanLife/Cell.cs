@@ -19,10 +19,14 @@ public abstract class Cell
 
         public Cell(int x, int y, Image im)
         {
+            _coord = new Coordinates(x, y);
             _defaultImage = im;
         }
 
         public Cell(Coordinates coord) : this(coord.X, coord.Y)
+        {}
+
+        public Cell(Cell c) : this(c._coord.X, c._coord.Y, c._defaultImage)
         {}
 
     #endregion
@@ -53,4 +57,5 @@ public abstract class Cell
 
     public abstract void ReduceTTL();
 
+    public abstract int GetTime();
 }

@@ -1,6 +1,13 @@
 @startuml
 class Predator {
     + Predator(x:int, y:int)
+    + Predator(coord:Coordinates)
+    + Predator(p:Predator)
+    + TimeToFeed : int <<get>> <<set>>
+    + <<override>> ReduceTTL() : void
+    + <<override>> GetTime() : int
+    + <<override>> Process(oc:Ocean) : void
+    + <<override>> Reproduce(oc:Ocean, coords:Coordinates) : void
 }
 Prey <|-- Predator
 @enduml

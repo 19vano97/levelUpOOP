@@ -9,10 +9,12 @@ public class Obstacle : Cell
     #region default ctors
 
         public Obstacle(int x, int y) : base(x, y, Image.Obstacle)
-        {
-        }
+        {}
 
         public Obstacle(Coordinates coord) : this(coord.X, coord.Y)
+        {}
+
+        public Obstacle(Obstacle o) : base(o)
         {}
 
     #endregion
@@ -25,4 +27,8 @@ public class Obstacle : Cell
 
     public override void ReduceTTL()
     {}
+
+    public override int GetTime() => 0;
+
+    
 }

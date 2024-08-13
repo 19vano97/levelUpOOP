@@ -2,7 +2,13 @@
 class Prey {
     + Prey(x:int, y:int)
     + Prey(x:int, y:int, im:Image)
-    + Num : int <<get>>
+    + Prey(coord:Coordinates)
+    + Prey(p:Prey)
+    + TimeToReproduce : int <<get>> <<set>>
+    + <<override>> ReduceTTL() : void
+    + <<override>> GetTime() : int
+    + <<override>> Process(oc:Ocean) : void
+    + <<override>> Reproduce(oc:Ocean, coords:Coordinates) : void
 }
 Cell <|-- Prey
 @enduml

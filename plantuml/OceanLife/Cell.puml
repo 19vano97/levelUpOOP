@@ -1,7 +1,14 @@
 @startuml
-class Cell {
+abstract class Cell {
     + Cell(x:int, y:int)
     + Cell(x:int, y:int, im:Image)
+    + Cell(coord:Coordinates)
+    + Cell(c:Cell)
+    + {abstract} ReduceTTL() : void
+    + {abstract} GetTime() : int
+    + <<virtual>> Process(oc:Ocean) : void
+    + <<virtual>> Reproduce(oc:Ocean, coords:Coordinates) : void
+    + AssignCellAt(coord:Coordinates) : void
 }
 Cell --> "Coord" Coordinates
 Cell --> "DefaultImage" Image

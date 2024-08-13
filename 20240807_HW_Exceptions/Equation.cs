@@ -21,7 +21,7 @@ public class Equation
 
             CalculateEquation();
 
-            System.Console.WriteLine("x1 = {0}, x2 = {1}", _x[0], _x[1]);
+            // System.Console.WriteLine("x1 = {0}, x2 = {1}", _x[0], _x[1]);
         }
 
     #endregion

@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240807_HW_Exceptions", "2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OceanLife", "OceanLife\OceanLife.csproj", "{02171E05-8212-4129-943C-FE662A69B4C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240813_Lesson_Lib", "20240813_Lesson_Lib\20240813_Lesson_Lib.csproj", "{528A5545-C4E3-4BCA-8C69-EF486B7F3631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{02171E05-8212-4129-943C-FE662A69B4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02171E05-8212-4129-943C-FE662A69B4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02171E05-8212-4129-943C-FE662A69B4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{528A5545-C4E3-4BCA-8C69-EF486B7F3631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{528A5545-C4E3-4BCA-8C69-EF486B7F3631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{528A5545-C4E3-4BCA-8C69-EF486B7F3631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{528A5545-C4E3-4BCA-8C69-EF486B7F3631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

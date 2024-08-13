@@ -11,10 +11,20 @@ class Group {
     + CreateCopyOfGroup() : Group
     + GetListOfSubjects(amountOfSubjects:int) : void
     + FindStudentsBySearchInGroup(name:string) : Student[]
+    + GetEnumerator() : IEnumerator
 }
+struct StudentIEnumerator {
+    + StudentIEnumerator(source:Group)
+    + Current : object <<get>>
+    + MoveNext() : bool
+    + Reset() : void
+}
+IEnumerable <|-- Group
 Group --> "UseId" Guid
 Group --> "EnrollmentDateOfTheGroup" DateTime
 Group --> "GroupSupervisor" Supervisor
 Group --> "GroupSpecialization" Specialization
 Group --> "StartDate" DateTime
+Group +-- StudentIEnumerator
+IEnumerator <|-- StudentIEnumerator
 @enduml

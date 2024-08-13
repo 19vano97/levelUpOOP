@@ -1,0 +1,5 @@
+@startuml
+class BL {
+    + {static} GetRandomInt(minValue:int, maxValue:int) : int
+}
+@enduml

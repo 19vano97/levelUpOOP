@@ -1,16 +1,18 @@
 @startuml
 
+!include ./OceanLife/UI.puml
+!include ./OceanLife/Game.puml
 !include ./OceanLife/Cell.puml
+!include ./OceanLife/BL.puml
 !include ./OceanLife/Consts.puml
+!include ./OceanLife/Movement.puml
 !include ./OceanLife/Prey.puml
 !include ./OceanLife/Image.puml
 !include ./OceanLife/Coordinates.puml
 !include ./OceanLife/Obstacle.puml
 !include ./OceanLife/Predator.puml
 !include ./OceanLife/Ocean.puml
+!include ./OceanLife/Stats.puml
 !include ./OceanLife/Program.puml
 
-!include ./OceanLife/obj/Debug/net8.0/OceanLife.GlobalUsings.g.puml
-!include ./OceanLife/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.puml
-!include ./OceanLife/obj/Debug/net8.0/OceanLife.AssemblyInfo.puml
 @enduml

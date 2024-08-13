@@ -1,0 +1,8 @@
+@startuml
+enum Stats {
+    None,
+    Prey,
+    Predators,
+    Obstacle,
+}
+@enduml

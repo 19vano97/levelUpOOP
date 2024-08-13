@@ -1,6 +1,10 @@
 @startuml
 class Obstacle {
     + Obstacle(x:int, y:int)
+    + Obstacle(coord:Coordinates)
+    + Obstacle(o:Obstacle)
+    + <<override>> ReduceTTL() : void
+    + <<override>> GetTime() : int
 }
 Cell <|-- Obstacle
 @enduml

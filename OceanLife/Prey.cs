@@ -22,6 +22,11 @@ public class Prey : Cell
 
         public Prey(Coordinates coord) : this(coord.X, coord.Y)
         {}
+
+        public Prey(Prey p) : base(p)
+        {
+            _timeToReproduce = p._timeToReproduce;
+        }
         
     #endregion
 
@@ -53,4 +58,5 @@ public class Prey : Cell
 
     public override void ReduceTTL() => _timeToReproduce -= 1;
 
+    public override int GetTime() => _timeToReproduce;
 }

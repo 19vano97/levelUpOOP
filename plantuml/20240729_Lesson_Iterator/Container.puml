@@ -1,0 +1,17 @@
+@startuml
+class Container {
+    + Container(items:object[])
+    + Add(item:object) : void
+    + Size : int <<get>>
+}
+struct ContainerIterator {
+    + ContainerIterator(source:Container)
+    + Current : object <<get>>
+    + MoveNext() : bool
+    + Reset() : void
+}
+IContainer <|-- Container
+IEnumerable <|-- Container
+Container +-- ContainerIterator
+IEnumerator <|-- ContainerIterator
+@enduml

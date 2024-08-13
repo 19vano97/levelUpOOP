@@ -16,6 +16,15 @@ class Picture {
     + GetArea() : double
     + GetPerimeter() : int
 }
+struct PictureEnumerator {
+    + PictureEnumerator(pic:Picture)
+    + Current : object <<get>>
+    + MoveNext() : bool
+    + Reset() : void
+}
 Point <|-- Picture
 IGeometrical <|-- Picture
+IEnumerable <|-- Picture
+Picture +-- PictureEnumerator
+IEnumerator <|-- PictureEnumerator
 @enduml

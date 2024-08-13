@@ -1,4 +1,6 @@
-﻿namespace OceanLife;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace OceanLife;
 
 public class Predator : Prey
 {
@@ -17,6 +19,11 @@ public class Predator : Prey
 
         public Predator(Coordinates coord) : this(coord.X, coord.Y)
         {}
+
+        public Predator(Predator p) : base(p)
+        {
+            _timeToFeed = p._timeToFeed;
+        }
 
     #endregion
 
@@ -47,4 +54,8 @@ public class Predator : Prey
     #endregion
 
     public override void ReduceTTL() => _timeToFeed -= 1;
+
+    public override int GetTime() => _timeToFeed;
+
+   
 }
