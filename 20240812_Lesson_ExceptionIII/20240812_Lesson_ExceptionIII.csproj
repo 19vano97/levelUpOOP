@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\MyClassTest\MyClassTest.csproj" />
+    <ProjectReference Include="..\CalculatorLib\CalculatorLib.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>_20240813_Lesson_Lib</RootNamespace>
+    <RootNamespace>_20240812_Lesson_ExceptionIII</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>

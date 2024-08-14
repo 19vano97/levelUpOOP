@@ -1,4 +1,6 @@
-﻿namespace _20240807_HW_Exceptions;
+﻿using System.Runtime.InteropServices;
+
+namespace _20240807_HW_Exceptions;
 
 public class Equation
 {
@@ -8,6 +10,7 @@ public class Equation
         private int _a;
         private int _b;
         private int _c;
+        private int _d;
 
     #endregion
 
@@ -15,29 +18,30 @@ public class Equation
 
         public Equation(int a, int b, int c)
         {
-            _a = a;
+            _a = CheckTheFirstArg(a);
             _b = b;
             _c = c;
-
-            CalculateEquation();
-
-            // System.Console.WriteLine("x1 = {0}, x2 = {1}", _x[0], _x[1]);
         }
+
+        public Equation()
+        {}
 
     #endregion
 
     #region props
 
-        public double[] X
-        {
-            get => _x;
-            set => _x = value;
-        }
-
         public int A
         {
             get => _a;
-            set => _a = value;
+            set
+            {
+                if (value == 0)
+                {
+                    throw new EquationInvalidDataException(_a);
+                }
+
+                _a = value;
+            }
         }
 
         public int B
@@ -51,32 +55,99 @@ public class Equation
             get => _c;
             set => _c = value;
         }
+
+        public int D
+        {
+            get => _d;
+        }
+
+        public double[] X
+        {
+            get
+            {
+                if (_x == null)
+                {
+                    throw new EquationInvalidDataException(_x, "There is no result yet.");
+                }
+
+                return _x;
+            }
+        }
+
+        public double this[int index]
+        {
+            get 
+            {
+                //No sence: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+
+                try
+                {
+                    return _x[index];
+                }
+                catch (System.IndexOutOfRangeException)
+                {
+                    throw new EquationInvalidDataException(_x[index], "There is no any result");
+                }
+            }
+            set 
+            {
+                //No sence: System.IndexOutOfRangeException: Index was outside the bounds of the array.
+                
+                try
+                {
+                    _x[index] = value;
+                }
+                catch (System.IndexOutOfRangeException)
+                {
+                    throw new EquationInvalidDataException(_x[index], "There is no any result");
+                }
+            }
+        }
         
     #endregion
 
-    private void CalculateEquation()
+    private int CheckTheFirstArg(int a)
     {
-        int d = (int)(Math.Pow(_b, 2) - 4 * _a * _c);
+        if (a == 0)
+        {
+            throw new EquationInvalidDataException(a);
+        }
 
-        if (d == 0)
+        return a;
+    }
+
+    public void CalculateEquation()
+    {
+        _d = (int)(Math.Pow(_b, 2) - 4 * _a * _c);
+
+        if (_d == 0)
         {
             _x = new double[1];
 
-            _x[0] = (-_b) / 2 * _a;
+            try
+            {
+                _x[0] = (-_b) / (2 * _a);
+            }
+            catch (System.DivideByZeroException)
+            {
+                throw new EquationInvalidDataException(X[0]);
+            }
         }
         else
         {
             _x = new double[2];
 
-            double x1Num = -_b + Math.Sqrt(d);
-            double x2Num = -_b - Math.Sqrt(d);
+            double x1Num = -_b + Math.Sqrt(_d);
+            double x2Num = -_b - Math.Sqrt(_d);
 
-            _x[0] = x1Num / (2 * _a);
-            _x[1] = x2Num / (2 * _a);
-
-            if (double.IsNaN(_x[0]) || double.IsNaN(_x[1]))
+            try
             {
-                throw new ArithmeticException("x - param equals infinite");
+                _x[0] = x1Num / (2 * _a);
+                _x[1] = x2Num / (2 * _a);
+            }
+            catch (System.DivideByZeroException)
+            {
+                throw new EquationInvalidDataException(X[0], X[1]);
             }
         }
     }
@@ -99,6 +170,7 @@ public class Equation
             }
         }
     }
+
 
 
 }

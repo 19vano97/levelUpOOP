@@ -14,7 +14,7 @@ public class Game
         do
         {
             
-            Process(ref oc);
+            
             oc.Update();
             UI.DisplayCells(oc);
             UI.DisplayStats(oc, iteration);
@@ -24,21 +24,5 @@ public class Game
             
         } while (iteration != 0);
         // } while (iteration != 0 | oc.NumPrey != 0 | oc.NumPredator != 0);
-    }
-
-    private void Process(ref Ocean oc)
-    {
-        for (int i = 0; i < oc.Cells.GetLength(0); i++)
-        {
-            for (int k = 0; k < oc.Cells.GetLength(1); k++)
-            {
-                if (oc.Cells[i, k] != null)
-                {
-                    oc.Cells[i, k].Process(ref oc);
-                }
-            }
-        }
-
-        oc.Update();
     }
 }
