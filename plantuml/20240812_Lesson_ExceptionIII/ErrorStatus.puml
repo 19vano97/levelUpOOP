@@ -1,0 +1,7 @@
+@startuml
+enum ErrorStatus {
+    Ok,
+    DivByZerro,
+    ArgLessZerro,
+}
+@enduml

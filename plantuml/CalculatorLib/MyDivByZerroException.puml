@@ -1,0 +1,11 @@
+@startuml
+class MyDivByZerroException {
+    + FirstArgument : int <<get>>
+    + SecondArgument : int <<get>>
+    + MyDivByZerroException(first:int, second:int, innerException:Exception)
+    + MyDivByZerroException()
+    + MyDivByZerroException(message:string)
+    + MyDivByZerroException(message:string, innerException:Exception)
+}
+Exception <|-- MyDivByZerroException
+@enduml

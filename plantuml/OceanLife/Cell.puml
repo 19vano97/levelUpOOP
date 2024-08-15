@@ -4,11 +4,13 @@ abstract class Cell {
     + Cell(x:int, y:int, im:Image)
     + Cell(coord:Coordinates)
     + Cell(c:Cell)
-    + {abstract} ReduceTTL() : void
-    + {abstract} GetTime() : int
-    + <<virtual>> Process(oc:Ocean) : void
-    + <<virtual>> Reproduce(oc:Ocean, coords:Coordinates) : void
-    + AssignCellAt(coord:Coordinates) : void
+    + <<virtual>> ReduceTimeToReproduce() : void
+    + <<virtual>> ReduceTimeToFeed() : void
+    + <<virtual>> GetTimeToReproduce() : int
+    + <<virtual>> GetTimeToFeed() : int
+    + <<virtual>> RestartTimeToFeed() : void
+    + <<virtual>> DoesShartkillInIteration() : bool
+    + <<virtual>> SetSharkKill(killed:bool) : void
 }
 Cell --> "Coord" Coordinates
 Cell --> "DefaultImage" Image

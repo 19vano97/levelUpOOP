@@ -14,7 +14,14 @@ class Ocean {
     + AddPredator() : void
     + AddObstacles(num:int) : void
     + AddObstacles() : void
-    + GetRandomCoordinate() : Coordinates
+    + GetEmptyNeighbor(c:Cell) : Movement
+    + GetPreyNeighbor(c:Cell) : Movement
     + GetCellAt(coord:Coordinates) : Cell
+    + AssignCellAt(coord:Coordinates, c:Cell) : void
+    + MoveAnimals() : void
 }
+IShowKills <|-- Ocean
+Ocean --> "killPlace" Coordinates
+Ocean --> "victim" Image
+Ocean --> "killer" Image
 @enduml

@@ -1,0 +1,5 @@
+@startuml
+class Calculator {
+    + {static} DevWithException(first:int, second:int) : int
+}
+@enduml

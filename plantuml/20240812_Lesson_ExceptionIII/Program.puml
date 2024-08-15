@@ -1,0 +1,5 @@
+@startuml
+class Program {
+    + {static} DevWithoutException(first:int, second:int, result:int) : ErrorStatus
+}
+@enduml

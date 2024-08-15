@@ -2,11 +2,12 @@
 
 namespace OceanLife;
 
-public class Predator : Prey
+public class Predator : Prey, IShowKill
 {
     #region varaibles
 
         protected int _timeToFeed;
+        protected bool _doesShartkillInIteration;
 
     #endregion
 
@@ -53,9 +54,24 @@ public class Predator : Prey
 
     #endregion
 
-    public override void ReduceTTL() => _timeToFeed -= 1;
+    #region IShowKill
 
-    public override int GetTime() => _timeToFeed;
+        public Coordinates killPlace {get; set;}
+        public Image victim {get; set;}
+        public Image killer {get; set;}
+        
+    #endregion
 
-   
+    public override void ReduceTimeToFeed() => _timeToFeed -= 1;
+
+    public override int GetTimeToFeed() => _timeToFeed;
+
+    public override void RestartTimeToFeed()
+    {
+        _timeToFeed = Consts.DEFAULT_TIME_TO_FEED;
+    }
+
+    public override bool DoesShartkillInIteration() => _doesShartkillInIteration;
+
+    public override void SetSharkKill(bool killed) => _doesShartkillInIteration = killed;
 }

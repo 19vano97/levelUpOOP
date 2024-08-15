@@ -56,7 +56,15 @@ public class Prey : Cell
 
     #endregion
 
-    public override void ReduceTTL() => _timeToReproduce -= 1;
+    public override void ReduceTimeToReproduce()
+    {
+        if (_timeToReproduce == -1)
+        {
+            _timeToReproduce = 6;
+        }
 
-    public override int GetTime() => _timeToReproduce;
+        _timeToReproduce -= 1;
+    }
+
+    public override int GetTimeToReproduce() => _timeToReproduce;
 }

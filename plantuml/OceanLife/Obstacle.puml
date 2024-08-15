@@ -3,8 +3,8 @@ class Obstacle {
     + Obstacle(x:int, y:int)
     + Obstacle(coord:Coordinates)
     + Obstacle(o:Obstacle)
-    + <<override>> ReduceTTL() : void
-    + <<override>> GetTime() : int
+    + <<override>> ReduceTimeToReproduce() : void
+    + <<override>> GetTimeToReproduce() : int
 }
 Cell <|-- Obstacle
 @enduml

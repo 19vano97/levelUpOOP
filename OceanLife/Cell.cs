@@ -55,7 +55,22 @@ public abstract class Cell
 
     #endregion
 
-    public abstract void ReduceTTL();
+    public virtual void ReduceTimeToReproduce()
+    {}
 
-    public abstract int GetTime();
+    public virtual void ReduceTimeToFeed()
+    {}
+
+    public virtual int GetTimeToReproduce() => 0;
+
+    public virtual int GetTimeToFeed() => 0;
+
+    public virtual void RestartTimeToFeed()
+    {}
+
+    public virtual bool DoesShartkillInIteration() => false;
+
+    public virtual void SetSharkKill(bool killed)
+    {}
+
 }

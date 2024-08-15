@@ -25,10 +25,10 @@ public class Obstacle : Cell
 
     #endregion
 
-    public override void ReduceTTL()
+    public override void ReduceTimeToReproduce()
     {}
 
-    public override int GetTime() => 0;
+    public override int GetTimeToReproduce() => 0;
 
     
 }

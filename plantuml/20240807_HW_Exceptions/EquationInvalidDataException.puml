@@ -1,0 +1,17 @@
+@startuml
+class EquationInvalidDataException {
+    + firstArg : int <<get>>
+    + secondArg : int <<get>>
+    + thirdArg : int <<get>>
+    + X1 : double <<get>>
+    + X2 : double <<get>>
+    + EquationInvalidDataException(a:int, inner:System.Exception)
+    + EquationInvalidDataException(x1:double, x2:double, inner:System.Exception)
+    + EquationInvalidDataException(x:double[], message:string, inner:Exception)
+    + EquationInvalidDataException(x:double, message:string, inner:Exception)
+    + EquationInvalidDataException()
+    + EquationInvalidDataException(message:string)
+    + EquationInvalidDataException(message:string, inner:System.Exception)
+}
+Exception <|-- EquationInvalidDataException
+@enduml

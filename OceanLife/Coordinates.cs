@@ -20,6 +20,9 @@ public class Coordinates
         public Coordinates() : this(0, 0)
         {}
 
+        public Coordinates(Coordinates coord) : this(coord._x, coord._y)
+        {}
+
     #endregion
 
     #region props

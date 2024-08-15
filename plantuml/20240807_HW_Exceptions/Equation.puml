@@ -1,9 +1,12 @@
 @startuml
 class Equation {
     + Equation(a:int, b:int, c:int)
+    + Equation()
     + A : int <<get>> <<set>>
     + B : int <<get>> <<set>>
     + C : int <<get>> <<set>>
+    + D : int <<get>>
+    + CalculateEquation() : void
     + <<override>> ToString() : string
 }
 @enduml

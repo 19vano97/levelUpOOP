@@ -46,4 +46,33 @@ public class UI
         Console.SetCursorPosition(x + 10, 3);
         System.Console.WriteLine("Iterations: {0}", iterations);
     }
+
+    public static void DisplayKills(Ocean oc)
+    {
+        int x = oc.Cells.GetLength(0);
+        int y = oc.Cells.GetLength(1);
+
+        int showIndex = 1;
+
+        for (int i = 0; i < x; i++)
+        {
+            for (int k = 0; k < y; k++)
+            {
+                if (oc.Cells[i, k] is Predator && oc.Cells[i, k].DoesShartkillInIteration() == true)
+                {
+                    IShowKill predator = (Predator)oc.Cells[i, k] as Predator;
+
+                    Console.SetCursorPosition(x + 30, showIndex);
+                    
+                    System.Console.WriteLine("[{0}, {1}] {2}  -> {3}", predator.killPlace.X, predator.killPlace.Y, 
+                                predator.killer, predator.victim);
+
+                    showIndex++;
+                }
+            }
+        }
+
+        Console.SetCursorPosition(x + 30, 0);
+        System.Console.WriteLine("Total kills in the current iteration: {0}", showIndex);
+    }
 }
