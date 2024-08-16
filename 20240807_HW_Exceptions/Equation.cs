@@ -23,9 +23,6 @@ public class Equation
             _c = c;
         }
 
-        public Equation()
-        {}
-
     #endregion
 
     #region props
@@ -33,15 +30,7 @@ public class Equation
         public int A
         {
             get => _a;
-            set
-            {
-                if (value == 0)
-                {
-                    throw new EquationInvalidDataException(_a);
-                }
-
-                _a = value;
-            }
+            set => _a = CheckTheFirstArg(value);
         }
 
         public int B
@@ -80,27 +69,13 @@ public class Equation
             {
                 //No sence: System.IndexOutOfRangeException: Index was outside the bounds of the array.
 
-                try
-                {
-                    return _x[index];
-                }
-                catch (System.IndexOutOfRangeException)
-                {
-                    throw new EquationInvalidDataException(_x[index], "There is no any result");
-                }
+                return _x[index];
             }
             set 
             {
                 //No sence: System.IndexOutOfRangeException: Index was outside the bounds of the array.
                 
-                try
-                {
-                    _x[index] = value;
-                }
-                catch (System.IndexOutOfRangeException)
-                {
-                    throw new EquationInvalidDataException(_x[index], "There is no any result");
-                }
+                _x[index] = value;
             }
         }
         

@@ -31,10 +31,12 @@ public class Ocean
     #endregion
 
     #region TODO
+
         // TODO: optimize code
         // TODO: refactor code
         // TODO: create interface to show preys and sharks
         // TODO: create own exceptions
+        
     #endregion
 
     #region props
