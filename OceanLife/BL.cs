@@ -32,4 +32,7 @@ public class BL
 
         return showIndex;
     }
+
+    ~BL()
+    {}
 }

@@ -64,7 +64,7 @@ public class UI
 
                     Console.SetCursorPosition(x + 30, showIndex);
                     
-                    System.Console.WriteLine("[{0}, {1}] {2}  -> {3}", predator.killPlace.X, predator.killPlace.Y, 
+                    System.Console.WriteLine("[{0}, {1}] {2}  killed {3}", predator.killPlace.X, predator.killPlace.Y, 
                                 predator.killer, predator.victim);
 
                     showIndex++;

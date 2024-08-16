@@ -36,4 +36,7 @@ public class Game
         Console.Clear();
         System.Console.WriteLine("Total kills: {0}", totalKills);
     }
+
+    ~Game()
+    {}
 }

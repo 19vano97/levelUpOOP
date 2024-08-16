@@ -67,4 +67,7 @@ public class Prey : Cell
     }
 
     public override int GetTimeToReproduce() => _timeToReproduce;
+
+    ~Prey()
+    {}
 }

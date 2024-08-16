@@ -30,6 +30,13 @@ public class Ocean
 
     #endregion
 
+    #region TODO
+        // TODO: optimize code
+        // TODO: refactor code
+        // TODO: create interface to show preys and sharks
+        // TODO: create own exceptions
+    #endregion
+
     #region props
 
         public Cell[,] Cells
@@ -354,16 +361,16 @@ public class Ocean
     
     #endregion
 
-    private Coordinates GetRandomCoordinate(int count = 5)
+    private Coordinates GetRandomCoordinate()
     {
         Coordinates coord = new Coordinates();
         
         coord.X = BL.GetRandomInt(1, _cells.GetLength(0));
         coord.Y = BL.GetRandomInt(1, _cells.GetLength(1));
 
-        if (!IsEmptyCell(coord) && count > 0)
+        if (!IsEmptyCell(coord))
         {
-            return GetRandomCoordinate(count--);
+            return GetRandomCoordinate();
         }
 
         return coord;
@@ -589,7 +596,7 @@ public class Ocean
 
     private void ConfirmedKill(int x, int y, Cell victim, ref Cell killer)
     {
-        IShowKill predatorKill = (Predator)killer as IShowKill;
+        IShowKill predatorKill = (Predator)killer;
 
         predatorKill.killPlace = new Coordinates(x, y);
         predatorKill.killer = killer.DefaultImage;
@@ -629,4 +636,7 @@ public class Ocean
             }
         }
     }
+
+    ~Ocean()
+    {}
 }

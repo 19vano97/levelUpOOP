@@ -74,4 +74,7 @@ public class Predator : Prey, IShowKill
     public override bool DoesShartkillInIteration() => _doesShartkillInIteration;
 
     public override void SetSharkKill(bool killed) => _doesShartkillInIteration = killed;
+
+    ~Predator()
+    {}
 }

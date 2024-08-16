@@ -30,5 +30,6 @@ public class Obstacle : Cell
 
     public override int GetTimeToReproduce() => 0;
 
-    
+    ~Obstacle()
+    {}
 }

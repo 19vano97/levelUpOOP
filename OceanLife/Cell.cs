@@ -73,4 +73,7 @@ public abstract class Cell
     public virtual void SetSharkKill(bool killed)
     {}
 
+    ~Cell()
+    {}
+
 }
