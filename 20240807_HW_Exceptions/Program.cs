@@ -10,18 +10,16 @@ internal class Program
         e1.CalculateEquation();
 
         System.Console.WriteLine(e1);
-        e1[3] = 5;
+        // e1[3] = 5;
 
-        // System.Console.WriteLine(e1.ToString());
+        System.Console.WriteLine(e1.ToString());
 
 
-        // Equation e2 = new Equation(0, 4, 5);
+        Equation e2 = new Equation(0, 4, 5);
 
-        // System.Console.WriteLine(e2.ToString());
+        System.Console.WriteLine(e2.ToString());
 
         // Equation e3 = new Equation();
         // e3.A = 0;
-
-        
     }
 }

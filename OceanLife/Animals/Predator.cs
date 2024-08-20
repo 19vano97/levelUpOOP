@@ -56,9 +56,9 @@ public class Predator : Prey, IShowKill
 
     #region IShowKill
 
-        public Coordinates killPlace {get; set;}
-        public Image victim {get; set;}
-        public Image killer {get; set;}
+        public Coordinates KillPlace {get; set;}
+        public Image Victim {get; set;}
+        public Image Killer {get; set;}
         
     #endregion
 

@@ -24,8 +24,6 @@ public class Ocean
             _numPrey = Consts.DEFAULT_NUM_PREY;
             _numObstacles = Consts.DEFAULT_NUM_OBSTACLES;
             _numPredators = Consts.DEFAULT_NUM_PREDATORS;
-
-            Init();
         }
 
     #endregion
@@ -36,7 +34,7 @@ public class Ocean
         // TODO: refactor code
         // TODO: create interface to show preys and sharks
         // TODO: create own exceptions
-        
+
     #endregion
 
     #region props
@@ -600,9 +598,9 @@ public class Ocean
     {
         IShowKill predatorKill = (Predator)killer;
 
-        predatorKill.killPlace = new Coordinates(x, y);
-        predatorKill.killer = killer.DefaultImage;
-        predatorKill.victim = victim.DefaultImage;
+        predatorKill.KillPlace = new Coordinates(x, y);
+        predatorKill.Killer = killer.DefaultImage;
+        predatorKill.Victim = victim.DefaultImage;
         killer.SetSharkKill(true);
 
     }

@@ -4,7 +4,7 @@ namespace OceanLife;
 
 public interface IShowKill
 {
-    Coordinates killPlace {get; set;}
-    Image victim {get; set;}
-    Image killer {get; set;}
+    Coordinates KillPlace {get; set;}
+    Image Victim {get; set;}
+    Image Killer {get; set;}
 }

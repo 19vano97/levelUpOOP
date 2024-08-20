@@ -12,6 +12,8 @@ public class Game
         int iteration = Consts.OCEAN_ITERATION;
         int totalKills = 0;
 
+        oc.Init();
+
         do
         {
             Console.Clear();
