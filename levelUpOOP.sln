@@ -49,14 +49,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLib", "Calculator
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240820_HW_Delegate", "20240820_HW_Delegate\20240820_HW_Delegate.csproj", "{CEFE43E1-F883-4AC5-9671-BB49D8C2A72B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240816_DelegatesDemo", "20240819_DelegatesFullSyntaxDemo\20240816_DelegatesDemo.csproj", "{E5FBCFC0-8303-4D16-A11C-5A98FE2F510A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240819_PublisherSubscriberDemo", "20240819_PublisherSubscriberDemo\20240819_PublisherSubscriberDemo.csproj", "{D156E8A9-0993-423A-83E1-222FF042743F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240819_PublisherSubscriberDemo", "20240819_PublisherSubscriberWithEventsAndEventArgsDemo\20240819_PublisherSubscriberDemo.csproj", "{D156E8A9-0993-423A-83E1-222FF042743F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240819_PublisherSubscriberDemo", "20240819_PublisherSubscriberWithEventsDemo\20240819_PublisherSubscriberDemo.csproj", "{D156E8A9-0993-423A-83E1-222FF042743F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "20240823_Lesson_Publisher", "20240823_Lesson_Publisher\20240823_Lesson_Publisher.csproj", "{19C53BEA-008C-4C56-9EDD-B0D61616F0DD}"
 EndProject
 Global
@@ -157,10 +149,6 @@ Global
 		{CEFE43E1-F883-4AC5-9671-BB49D8C2A72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEFE43E1-F883-4AC5-9671-BB49D8C2A72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEFE43E1-F883-4AC5-9671-BB49D8C2A72B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5FBCFC0-8303-4D16-A11C-5A98FE2F510A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5FBCFC0-8303-4D16-A11C-5A98FE2F510A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5FBCFC0-8303-4D16-A11C-5A98FE2F510A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5FBCFC0-8303-4D16-A11C-5A98FE2F510A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D156E8A9-0993-423A-83E1-222FF042743F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D156E8A9-0993-423A-83E1-222FF042743F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D156E8A9-0993-423A-83E1-222FF042743F}.Release|Any CPU.ActiveCfg = Release|Any CPU
